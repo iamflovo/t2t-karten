@@ -1,0 +1,2 @@
+{"name":"Tape to Tape Spielerkarten","short_name":"T2T Karten","lang":"de","start_url":"./","scope":"./","display":"standalone","orientation":"portrait","background_color":"#08111d","theme_color":"#08111d",
+"icons":[{"src":"icon-192.png","sizes":"192x192","type":"image/png"},{"src":"icon-512.png","sizes":"512x512","type":"image/png"},{"src":"icon-maskable.png","sizes":"512x512","type":"image/png","purpose":"maskable"}]}
