@@ -245,6 +245,7 @@ main{max-width:1200px;margin:0 auto;padding:14px var(--sr) calc(var(--nav) + 24p
 .favbtn[aria-pressed="true"]{color:var(--gold)}
 .empty{color:var(--muted);padding:30px 0;text-align:center}
 .empty[hidden]{display:none}
+.appver{margin:18px 0 0;text-align:center;font:600 11px var(--f-px,inherit);color:var(--muted);letter-spacing:.06em}
 .infowrap{margin-top:22px;border:1px solid var(--line);border-radius:12px;background:var(--rink)}
 .infowrap>summary{list-style:none;cursor:pointer;padding:11px 13px;font:800 12px var(--f-num);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;border:0}
 .infowrap>summary::-webkit-details-marker{display:none}
@@ -619,6 +620,7 @@ details.entry{border-left:7px solid var(--red)!important}
         <div><b>Harmonie</b>Die Mitspieler-Tipps sind meine Einschätzung aus Werten, Fähigkeiten und Forum-Tipps. Offizielle Synergie-Daten gibt es nicht.</div>
       </div>
     </details>
+    <p class="appver">App-Version 02.11. 21:54</p>
     <details class="infowrap"><summary>Woher die Daten stammen</summary>
       <div class="info">
         <div><b>Werte</b>Speed, Checking, Shot Power und Accuracy stammen aus der Early-Access-Zeit, aus Community-Screenshots oder aus deinem eigenen Spiel (steht dann dabei). Gestreifte Balken liegen über 100.</div>
@@ -1314,7 +1316,7 @@ function showView(v){
   document.querySelectorAll(".bnav button").forEach(b=>b.toggleAttribute("aria-current",false)||b.dataset.view===v&&b.setAttribute("aria-current","page"));
   $("tools").hidden=v!=="spieler";$("vtitle").textContent=VT[v];
   if(v==="team")renderTeam();if(v==="cmp")renderCmp();if(v==="news")renderNews();
-  window.scrollTo({top:0,behavior:"auto"});store.set("view",v);
+  window.scrollTo({top:0,behavior:"auto"});
 }
 document.querySelector(".bnav").addEventListener("click",e=>{const b=e.target.closest("[data-view]");if(b){if(!$("sheet").hidden)closeSheet();showView(b.dataset.view)}});
 $("plist").addEventListener("click",e=>{
@@ -1332,8 +1334,8 @@ $("sort").addEventListener("change",()=>{store.set("sort",$("sort").value);rende
   document.querySelectorAll(".chip[data-f]").forEach(c=>c.setAttribute("aria-pressed",c.dataset.f===filter));document.querySelectorAll(".chip.pos").forEach(c=>c.setAttribute("aria-pressed",c.dataset.p===posF))}
   const so=store.get("sort",null);if(so)$("sort").value=so;})();
 render();renderTeam();renderCmp();
-showView(VT[store.get("view","spieler")]?store.get("view","spieler"):"spieler");
+showView("spieler");
 </script>
-<script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").then(r=>{r.update();r.addEventListener("updatefound",()=>{const w=r.installing;w&&w.addEventListener("statechange",()=>{if(w.state==="activated"&&navigator.serviceWorker.controller&&typeof toast==="function")toast("Neue Version geladen")})})}).catch(()=>{}));</script>
+<script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>{r.update();r.addEventListener("updatefound",()=>{const w=r.installing;w&&w.addEventListener("statechange",()=>{if(w.state==="activated"&&navigator.serviceWorker.controller&&typeof toast==="function")toast("Neue Version geladen")})})}).catch(()=>{}));</script>
 </body>
 </html>
