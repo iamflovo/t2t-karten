@@ -369,6 +369,7 @@ details.infowrap{border-top:1px solid var(--line);padding-top:0;font-size:inheri
 .patch ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
 .patch li{display:grid;grid-template-columns:92px 1fr;gap:8px;font-size:14px;color:#d9e4ef}
 .pk{font:800 11px var(--f-num);letter-spacing:.1em;text-transform:uppercase;color:var(--blue);padding-top:2px}
+.patch.plan{border-style:dashed!important;background:linear-gradient(180deg,#1b2c4c,#132238)}.ptag.plan{background:#3f9a3a}
 .pnote{margin:0;font-size:13px;color:var(--muted);border-left:3px solid var(--blue);padding-left:9px}
 .patch .meta,.entry .meta{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:12.5px;color:var(--muted)}
 .patch .meta a,.entry .meta a{color:var(--blue)}
@@ -1211,6 +1212,11 @@ $("cpick").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(
 /* ---------- Neuerungen ---------- */
 const ANN="https://steamcommunity.com/app/1566200/announcements/";
 const PATCH=[
+ {v:"Hotfix #3",b:"CS14055",d:"01.11.2026",x:[
+   ["Sprache","Schwedisch neu dabei, Spanisch folgt bald."],
+   ["Gameplay","Verbesserte Spielerauswahl."],
+   ["KI","Bessere KI beim Hinterherjagen und Aufnehmen loser Pucks."]],p:[],
+  note:"Entwickler: Sie lesen alles Feedback (Steam, Discord, Social Media) und balancieren weiter. Bei unfairen Situationen wünschen sie sich einen Clip mit kurzer Erklärung."},
  {v:"Hotfix #2",b:"CS14031",d:"28.10.2026",x:[
    ["Balance","The Officials sind auf allen Schwierigkeitsgraden leicht abgeschwächt."],
    ["KI","KI-Mitspieler checken nur noch auf Pro automatisch. Auf Veteran und Nightmare musst du selbst wechseln und checken, außer im Solo Squad."],
@@ -1226,9 +1232,10 @@ const PATCH=[
    ["Spieler","Startwerte von Angus und den Benchwarmern wurden gebufft. Dauerhaftes Aufleveln zwischen Runs gibt es nicht mehr."],
    ["Squads","19 Squads mit eigenen Regeln, einige Stars sind fest einem Squad zugeordnet."]],p:["Angus McShaggy"]}
 ];
+const PLAN=[["Modi","Neue Play-Now-Modi: Eliminator-Modus, 16-Bit-Modus und weitere Spieleinstellungen"],["Komfort","Komfortfunktionen und Vorschläge aus der Community"],["Balance","Weitere Bugfixes und Balancing"],["Konsole","Konsolen-Ports wurden im Mai erwähnt, seitdem nichts Neues"],["DLC","Bisher nicht angekündigt"]];
 const ITEMS=NEWS.flatMap(d=>d.items.map(it=>({...it,d:d.d}))).filter(it=>!it.src.some(([,u])=>u.includes("announcements")));
 const SEGS={patch:PATCH,spieler:ITEMS.filter(it=>it.p.length),tipps:ITEMS.filter(it=>!it.p.length)};
-const NSUB={patch:"Offizielle Updates der Entwickler, das neueste zuerst.",spieler:"Neue Infos zu einzelnen Spielern aus Forum, Screenshots und deinem Spiel. Tippe auf einen Eintrag zum Aufklappen.",tipps:"Allgemeine Tipps zu Squads, Bank und Items aus der Community."};
+const NSUB={patch:"Was offiziell geplant ist und alle Updates der Entwickler, das neueste zuerst.",spieler:"Neue Infos zu einzelnen Spielern aus Forum, Screenshots und deinem Spiel. Tippe auf einen Eintrag zum Aufklappen.",tipps:"Allgemeine Tipps zu Squads, Bank und Items aus der Community."};
 let nseg="patch";
 $("bd-news").textContent=NEWS[0]?NEWS[0].items.length:"";
 Object.keys(SEGS).forEach(k=>$("ns-"+k).textContent=SEGS[k].length);
@@ -1237,7 +1244,10 @@ function renderNews(){
   document.querySelectorAll("#nseg [data-seg]").forEach(b=>b.setAttribute("aria-selected",b.dataset.seg===nseg));
   $("nsub").textContent=NSUB[nseg];
   if(nseg==="patch"){
-    $("news").innerHTML=PATCH.map((p,i)=>`<article class="patch${i===0?" latest":""}"><header><div><h3>${esc(p.v)}</h3><span class="pb">${esc(p.b)} · ${esc(p.d)}</span></div>${i===0?`<span class="ptag">Aktuell</span>`:""}</header>
+    $("news").innerHTML=`<article class="patch plan"><header><div><h3>Geplant</h3><span class="pb">Offiziell angekündigt · ohne Termin</span></div><span class="ptag plan">Bald</span></header>
+      <ul>${PLAN.map(([k,s])=>`<li><span class="pk">${esc(k)}</span><span>${esc(s)}</span></li>`).join("")}</ul>
+      <p class="pnote">Eine richtige Roadmap gibt es noch nicht. Die Entwickler haben einen eigenen „What's Next“-Beitrag und eine FAQ angekündigt. Sobald er erscheint, trage ich ihn hier ein.</p>
+      <div class="meta"><a href="${ANN}" target="_blank" rel="noopener">Ankündigung zu 1.0 ↗</a></div></article>`+PATCH.map((p,i)=>`<article class="patch${i===0?" latest":""}"><header><div><h3>${esc(p.v)}</h3><span class="pb">${esc(p.b)} · ${esc(p.d)}</span></div>${i===0?`<span class="ptag">Aktuell</span>`:""}</header>
       <ul>${p.x.map(([k,t])=>`<li><span class="pk">${esc(k)}</span><span>${esc(t)}</span></li>`).join("")}</ul>
       ${p.note?`<p class="pnote">${esc(p.note)}</p>`:""}<div class="meta">${chipsOf(p.p)}<a href="${ANN}" target="_blank" rel="noopener">Offizielle Ankündigung ↗</a></div></article>`).join("");
     return;
