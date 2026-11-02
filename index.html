@@ -1230,9 +1230,12 @@ const PATCH=[
    ["Kampagne","Kampagne komplett neu gebaut, drei Akte mit je einem Boss und Elite-Teams dazwischen."],
    ["Freischalten","Rubber-Währung und Superstar-Shop beim Blademaster sind weg. Spieler, Power-ups, Relics, Squads und Benchwarmer schaltest du jetzt über Challenges frei."],
    ["Spieler","Startwerte von Angus und den Benchwarmern wurden gebufft. Dauerhaftes Aufleveln zwischen Runs gibt es nicht mehr."],
-   ["Squads","19 Squads mit eigenen Regeln, einige Stars sind fest einem Squad zugeordnet."]],p:["Angus McShaggy"]}
+   ["Squads","19 Squads mit eigenen Regeln, einige Stars sind fest einem Squad zugeordnet."],
+   ["Plattformen","Gleichzeitiger Release auf PC (Steam), PS5, Xbox Series X|S und Nintendo Switch (auch Switch 2)."],
+   ["PS5","1–4 Spieler lokal (Couch-Koop in der Kampagne), kein Online-Modus, Remote Play, deutsche Texte."]],p:["Angus McShaggy"],
+  note:"Ob die Hotfixes auf PS5 gleichzeitig mit Steam ankommen, sagen die Entwickler nicht. Die Patchnotes erscheinen nur auf Steam."}
 ];
-const PLAN=[["Modi","Neue Play-Now-Modi: Eliminator-Modus, 16-Bit-Modus und weitere Spieleinstellungen"],["Komfort","Komfortfunktionen und Vorschläge aus der Community"],["Balance","Weitere Bugfixes und Balancing"],["Konsole","Konsolen-Ports wurden im Mai erwähnt, seitdem nichts Neues"],["DLC","Bisher nicht angekündigt"]];
+const PLAN=[["Modi","Neue Play-Now-Modi: Eliminator-Modus, 16-Bit-Modus und weitere Spieleinstellungen"],["Komfort","Komfortfunktionen und Vorschläge aus der Community"],["Balance","Weitere Bugfixes und Balancing"],["DLC","Bisher nicht angekündigt"]];
 const ITEMS=NEWS.flatMap(d=>d.items.map(it=>({...it,d:d.d}))).filter(it=>!it.src.some(([,u])=>u.includes("announcements")));
 const SEGS={patch:PATCH,spieler:ITEMS.filter(it=>it.p.length),tipps:ITEMS.filter(it=>!it.p.length)};
 const NSUB={patch:"Was offiziell geplant ist und alle Updates der Entwickler, das neueste zuerst.",spieler:"Neue Infos zu einzelnen Spielern aus Forum, Screenshots und deinem Spiel. Tippe auf einen Eintrag zum Aufklappen.",tipps:"Allgemeine Tipps zu Squads, Bank und Items aus der Community."};
