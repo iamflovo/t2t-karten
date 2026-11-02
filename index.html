@@ -359,6 +359,8 @@ details.infowrap{border-top:1px solid var(--line);padding-top:0;font-size:inheri
 .seg button{border:0;background:none;border-radius:9px;padding:8px 4px;cursor:pointer;font:800 12.5px var(--f-num);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 .seg button[aria-selected="true"]{background:var(--ice);color:var(--night)}
 .seg .n{margin-left:5px;opacity:.6}
+.seg .n.unread{opacity:1;background:var(--red);color:#fff;border-radius:999px;padding:0 6px;border:1.5px solid var(--ink)}
+.vh .ndot,.patch h3 .ndot,.et .ndot{vertical-align:middle;font-size:9px;margin-left:4px;text-shadow:none}
 .news{max-width:620px;gap:12px}
 .patch{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:13px 14px;display:grid;gap:10px}
 .patch.latest{border-color:color-mix(in srgb,var(--red) 60%,var(--line))}
@@ -1031,7 +1033,7 @@ let current=[];
 function row(x,i){
   return `<li style="--i:${Math.min(i,14)}"><button class="prow ${TCLS[x.t]||""}" data-open="${esc(x.n)}" style="--rc:${col(x.r)}">
     <span class="av">${avatar(x)}</span>
-    <span class="pinfo"><span class="pname"><span>${esc(x.n)}</span>${NEWBY[x.n]?`<i class="ndot">NEU</i>`:""}</span>
+    <span class="pinfo"><span class="pname"><span>${esc(x.n)}</span>${NEWBY[x.n]&&NEWBY[x.n].some(isNew)?`<i class="ndot">NEU</i>`:""}</span>
       <span class="pmeta"><span class="ptype">${TSHORT[x.t]||x.t}</span><span class="prole">${x.r}</span><span>${esc(x.pos)}</span></span></span>
     <span class="povr${x.o?"":" none"}"><b>${x.o||"–"}</b><small>OVR</small></span><span></span></button>
     <button class="favbtn" data-fav="${esc(x.n)}" aria-pressed="${favs.has(x.n)}" aria-label="${esc(x.n)} als Favorit markieren">★</button></li>`;
@@ -1240,23 +1242,38 @@ const ITEMS=NEWS.flatMap(d=>d.items.map(it=>({...it,d:d.d}))).filter(it=>!it.src
 const SEGS={patch:PATCH,spieler:ITEMS.filter(it=>it.p.length),tipps:ITEMS.filter(it=>!it.p.length)};
 const NSUB={patch:"Was offiziell geplant ist und alle Updates der Entwickler, das neueste zuerst.",spieler:"Neue Infos zu einzelnen Spielern aus Forum, Screenshots und deinem Spiel. Tippe auf einen Eintrag zum Aufklappen.",tipps:"Allgemeine Tipps zu Squads, Bank und Items aus der Community."};
 let nseg="patch";
-$("bd-news").textContent=NEWS[0]?NEWS[0].items.length:"";
-Object.keys(SEGS).forEach(k=>$("ns-"+k).textContent=SEGS[k].length);
+const pid=p=>"p-"+slug(p.v);
+const SEGIDS={patch:["plan-1",...PATCH.map(pid)],spieler:SEGS.spieler.map(it=>it.id),tipps:SEGS.tipps.map(it=>it.id)};
+const ALLNEWS=new Set(Object.values(SEGIDS).flat());
+const _s=store.get("seen",null);
+/* Erster Start nach diesem Update: alles Bisherige gilt als gelesen, ab jetzt zählt nur Neues */
+let seen=new Set(_s||[...ALLNEWS]);if(!_s)store.set("seen",[...seen]);
+const isNew=id=>ALLNEWS.has(id)&&!seen.has(id);
+function newsBadges(){
+  const un=k=>SEGIDS[k].filter(isNew).length;
+  const tot=Object.keys(SEGIDS).reduce((a,k)=>a+un(k),0);
+  $("bd-news").textContent=tot||"";
+  Object.keys(SEGS).forEach(k=>{const u=un(k);$("ns-"+k).textContent=u?`${u} neu`:SEGIDS[k].length;$("ns-"+k).classList.toggle("unread",u>0)});
+}
+function markSeen(k){let ch=false;SEGIDS[k].forEach(id=>{if(!seen.has(id)){seen.add(id);ch=true}});if(ch){store.set("seen",[...seen]);newsBadges();render()}}
+$("seen-all")&&0;
+newsBadges();
 const chipsOf=p=>p.map(n=>names.has(n)?`<button class="mate" data-open="${esc(n)}">${esc(n)} ↗</button>`:"").join("");
 function renderNews(){
+  setTimeout(()=>{if(!$("v-news").hidden)markSeen(nseg)},400);
   document.querySelectorAll("#nseg [data-seg]").forEach(b=>b.setAttribute("aria-selected",b.dataset.seg===nseg));
   $("nsub").textContent=NSUB[nseg];
   if(nseg==="patch"){
-    $("news").innerHTML=`<article class="patch plan"><header><div><h3>Geplant</h3><span class="pb">Offiziell angekündigt · ohne Termin</span></div><span class="ptag plan">Bald</span></header>
+    $("news").innerHTML=`<article class="patch plan" id="plan-1"><header><div><h3>Geplant${isNew("plan-1")?` <i class="ndot">NEU</i>`:""}</h3><span class="pb">Offiziell angekündigt · ohne Termin</span></div><span class="ptag plan">Bald</span></header>
       <ul>${PLAN.map(([k,s])=>`<li><span class="pk">${esc(k)}</span><span>${esc(s)}</span></li>`).join("")}</ul>
       <p class="pnote">Eine richtige Roadmap gibt es noch nicht. Die Entwickler haben einen eigenen „What's Next“-Beitrag und eine FAQ angekündigt. Sobald er erscheint, trage ich ihn hier ein.</p>
-      <div class="meta"><a href="${ANN}" target="_blank" rel="noopener">Ankündigung zu 1.0 ↗</a></div></article>`+PATCH.map((p,i)=>`<article class="patch${i===0?" latest":""}"><header><div><h3>${esc(p.v)}</h3><span class="pb">${esc(p.b)} · ${esc(p.d)}</span></div>${i===0?`<span class="ptag">Aktuell</span>`:""}</header>
+      <div class="meta"><a href="${ANN}" target="_blank" rel="noopener">Ankündigung zu 1.0 ↗</a></div></article>`+PATCH.map((p,i)=>`<article class="patch${i===0?" latest":""}" id="${pid(p)}"><header><div><h3>${esc(p.v)}${isNew(pid(p))?` <i class="ndot">NEU</i>`:""}</h3><span class="pb">${esc(p.b)} · ${esc(p.d)}</span></div>${i===0?`<span class="ptag">Aktuell</span>`:""}</header>
       <ul>${p.x.map(([k,t])=>`<li><span class="pk">${esc(k)}</span><span>${esc(t)}</span></li>`).join("")}</ul>
       ${p.note?`<p class="pnote">${esc(p.note)}</p>`:""}<div class="meta">${chipsOf(p.p)}<a href="${ANN}" target="_blank" rel="noopener">Offizielle Ankündigung ↗</a></div></article>`).join("");
     return;
   }
   const list=SEGS[nseg];const days=[...new Set(list.map(it=>it.d))];
-  $("news").innerHTML=days.map(d=>`<section class="nday"><h4>${esc(d)}</h4>${list.filter(it=>it.d===d).map(it=>`<details class="entry" id="${it.id}"><summary><span class="et">${esc(it.h)}</span>${it.low?`<span class="conf">unsicher</span>`:""}</summary>
+  $("news").innerHTML=days.map(d=>`<section class="nday"><h4>${esc(d)}</h4>${list.filter(it=>it.d===d).map(it=>`<details class="entry" id="${it.id}"><summary><span class="et">${esc(it.h)}${isNew(it.id)?` <i class="ndot">NEU</i>`:""}</span>${it.low?`<span class="conf">unsicher</span>`:""}</summary>
       <p>${esc(it.t)}</p><div class="meta">${chipsOf(it.p)}${it.src.map(([l,u])=>`<a href="${u}" target="_blank" rel="noopener">Steam: ${esc(l)} ↗</a>`).join("")}${!it.src.length?`<span>Quelle: dein Spiel</span>`:""}</div></details>`).join("")}</section>`).join("");
 }
 $("nseg").addEventListener("click",e=>{const b=e.target.closest("[data-seg]");if(!b)return;nseg=b.dataset.seg;store.set("nseg",nseg);renderNews();window.scrollTo({top:0})});
@@ -1296,7 +1313,7 @@ function showView(v){
   Object.keys(VT).forEach(k=>$("v-"+k).hidden=k!==v);
   document.querySelectorAll(".bnav button").forEach(b=>b.toggleAttribute("aria-current",false)||b.dataset.view===v&&b.setAttribute("aria-current","page"));
   $("tools").hidden=v!=="spieler";$("vtitle").textContent=VT[v];
-  if(v==="team")renderTeam();if(v==="cmp")renderCmp();
+  if(v==="team")renderTeam();if(v==="cmp")renderCmp();if(v==="news")renderNews();
   window.scrollTo({top:0,behavior:"auto"});store.set("view",v);
 }
 document.querySelector(".bnav").addEventListener("click",e=>{const b=e.target.closest("[data-view]");if(b){if(!$("sheet").hidden)closeSheet();showView(b.dataset.view)}});
