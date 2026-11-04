@@ -334,6 +334,7 @@ details.infowrap{border-top:1px solid var(--line);padding-top:0;font-size:inheri
 .slot.off{opacity:.35;cursor:default}.slot.off .av{display:grid;place-items:center;border:2px dashed rgba(255,255,255,.3);border-radius:50%;width:52px;height:52px}.bench{max-width:620px;margin:-6px auto 16px;display:grid;gap:6px}.bk{font:800 11px var(--f-num);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.brow{display:flex;gap:8px;flex-wrap:wrap}.bslot{display:grid;justify-items:center;gap:3px;border:0;background:none;cursor:pointer;color:var(--ice);width:64px}.bslot .av{width:46px;height:46px;border-radius:50%;overflow:hidden;border:2.5px solid var(--ink);display:grid;place-items:center}.bslot .av img{width:100%;height:100%;object-fit:cover}.bslot.empty .av{border:2.5px dashed rgba(255,255,255,.4);color:rgba(255,255,255,.55)}.bslot .sn{font-size:11px;font-weight:700;max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pair.m i{background:#4a3f12;color:#f2c14e}.sug{display:grid;gap:2px;padding:6px 0;border-top:1px solid var(--line)}.sug small{color:var(--muted);font-size:12.5px}.sug em{font-style:normal;font-size:12px;color:#7fd17a}.lexchip{justify-self:start;border:2px solid var(--ink);border-radius:999px;background:#22314d;color:var(--ice);font:700 13px var(--f-body);padding:3px 10px;cursor:pointer}.pk-sug{display:grid;gap:6px;margin-bottom:8px}.pcon{color:#ff8a80}
 .ssel{display:grid;gap:6px}.ssel select{font:600 14px var(--f-body);padding:8px 10px;border:2px solid var(--ink);border-radius:10px;background:#0f2140;color:var(--ice)}
 .slot.ss .av{border-color:#f2c14e!important;color:#f2c14e!important}.swap{display:block;margin-top:3px;color:#ffd27a!important}.rtswap{margin-left:6px;border:1.5px solid var(--ink);border-radius:8px;background:#2f5f2f;color:#fff;font:700 11px var(--f-num);padding:2px 8px;cursor:pointer;text-transform:uppercase}.upg{display:grid;gap:2px;padding:8px 0;border-top:1px solid var(--line)}.ukind{font-style:normal;font:800 10px var(--f-num);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.abtn{flex:none;border:2px solid var(--ink);border-radius:9px;background:#22314d;font-size:17px;line-height:1;padding:5px 7px;cursor:pointer;margin-left:6px;box-shadow:0 2px 0 var(--ink)}.picker.ai{grid-template-rows:auto 1fr}#ai-body{display:grid;gap:10px;padding:10px 12px 18px;align-content:start}.aiimg{width:100%;max-height:220px;object-fit:contain;border-radius:10px;border:2px solid var(--ink);background:#000}.fld{display:grid;gap:4px;font-size:13px;color:var(--muted)}.fld input,.fld select{font:600 14px var(--f-body);padding:9px 10px;border:2px solid var(--ink);border-radius:10px;background:#0f2140;color:var(--ice);min-width:0}.ghost.inl{display:inline-block;margin:0}#ai-body a{color:#8ab4ff}
 .ghost{display:block;margin:16px auto 0;border:1.5px solid var(--line);background:none;border-radius:999px;padding:8px 16px;color:var(--muted);cursor:pointer;font:700 12.5px var(--f-num);letter-spacing:.1em;text-transform:uppercase}
 
 /* Vergleich */
@@ -576,8 +577,8 @@ details.entry{border-left:7px solid var(--red)!important}
 .bnav span{font:600 9.5px var(--f-px);letter-spacing:0;max-width:100%;overflow:hidden;text-overflow:clip;text-shadow:1px 1px 0 var(--ink),-1px -1px 0 var(--ink),1px -1px 0 var(--ink),-1px 1px 0 var(--ink),0 1.5px 0 var(--ink)}
 .bnav .bd{font:600 9.5px var(--f-px);border:1.5px solid var(--ink);top:-4px;z-index:1}
 @media (min-width:760px){.bnav{border:3px solid var(--ink);border-radius:16px;box-shadow:0 5px 0 var(--ink);padding-bottom:0}}
-.brand{flex:1 1 auto}.brand h1{min-width:0}.stand{flex:none}
-@media (max-width:420px){.brand h1{font-size:18px}.stand{font-size:10px;padding:2px 5px}}
+.brand{flex:1 1 auto;min-width:0}.ab-top{min-width:0}.brand h1{min-width:0}.stand{flex:none}
+@media (max-width:420px){.stand .sd{display:none}.abtn{margin-left:0;font-size:15px;padding:4px 6px}.ab-top{gap:6px}.brand h1{font-size:18px}.stand{font-size:10px;padding:2px 5px}}
 .toast{border:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);font-family:var(--f-px);font-weight:600;background:#ffd34d}
 
 /* Lexikon */
@@ -624,7 +625,8 @@ details.entry{border-left:7px solid var(--red)!important}
   <div class="ab-in">
     <div class="ab-top">
       <div class="brand"><img src="data:image/jpeg;base64,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" alt=""><h1>Tape to Tape <span id="vtitle">Spieler</span></h1></div>
-      <span class="stand">1.0 · Stand 03.11.</span>
+      <span class="stand">1.0<span class="sd"> · Stand 04.11.</span></span>
+      <button class="abtn" id="ab-cam" aria-label="Screenshot auswerten">📷</button><button class="abtn" id="ab-set" aria-label="Einstellungen">⚙️</button>
     </div>
     <div class="tools" id="tools">
       <div class="srow">
@@ -669,7 +671,7 @@ details.entry{border-left:7px solid var(--red)!important}
         <div><b>Harmonie</b>Die Mitspieler-Tipps sind meine Einschätzung aus Werten, Fähigkeiten und Forum-Tipps. Offizielle Synergie-Daten gibt es nicht.</div>
       </div>
     </details>
-    <p class="appver">App-Version 04.11. 22:56</p>
+    <p class="appver">App-Version 04.11. 23:20</p>
     <details class="infowrap"><summary>Woher die Daten stammen</summary>
       <div class="info">
         <div><b>Werte</b>Speed, Checking, Shot Power und Accuracy stammen aus der Early-Access-Zeit, aus Community-Screenshots oder aus deinem eigenen Spiel (steht dann dabei). Gestreifte Balken liegen über 100.</div>
@@ -739,6 +741,11 @@ details.entry{border-left:7px solid var(--red)!important}
     <button class="abtn" id="sh-cmp"><svg viewBox="0 0 24 24"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/></svg>Vergleich</button>
   </div>
 </div>
+<div class="picker ai" id="ai" hidden role="dialog" aria-modal="true" aria-labelledby="ai-title">
+  <div class="pk-head"><h3 id="ai-title">Screenshot auswerten</h3><button class="ibtn" id="ai-close" aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="pk-list" id="ai-body"></div>
+</div>
+<input type="file" id="ai-file" accept="image/*" hidden>
 <div class="picker" id="picker" hidden role="dialog" aria-modal="true" aria-labelledby="pk-title">
   <div class="pk-head"><h3 id="pk-title">Spieler wählen</h3><button class="ibtn" id="pk-close" aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
   <div class="pk-search"><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="pk-q" type="search" placeholder="Suchen" aria-label="Spieler suchen" autocomplete="off"></label></div>
@@ -768,6 +775,7 @@ const P=[{"n":"Chloe Crockett","dc":"Pass-Maschine: Mit Passtempo-Boni kommen ih
 /* Neuerungen: je Fundtag ein Block; p = betroffene Karten, low = unsichere Quelle */
 const NEWS=[
  {d:"04.11.2026",note:"Abgleich mit der Free-Agent- und Freischalt-Liste aus den Spieldaten von 1.0.",items:[
+  {id:"n1104-ki",h:"Neu: Screenshots mit KI auswerten",p:[],t:"Oben rechts gibt es jetzt 📷 und ⚙️. Unter ⚙️ trägst du einmal deinen eigenen API-Schlüssel ein: Claude, ChatGPT, Gemini oder ein OpenAI-kompatibler Anbieter wie OpenRouter. Der Schlüssel bleibt nur auf deinem Gerät, die Kosten laufen über dein Konto beim Anbieter. Mit 📷 fotografierst du einen Bildschirm im Spiel oder wählst einen Screenshot. Die App erkennt ihn und hilft direkt: Beim Superstar bewertet sie die 3 Angebote und setzt den besten in dein Team. Bei Belohnungen zeigt sie, welches Talent oder Relikt passt und für wen. Eine Aufstellung übernimmt sie als dein Team, im Kompendium markiert sie neu freigeschaltete Spieler. Bei Spieler- und Ergebnisseiten vergleicht sie die Werte mit den Grundwerten. Übernommen wird erst, wenn du tippst. In der Claude-App geht es ohne Schlüssel über dein Claude-Konto.",src:[]},
   {id:"n1104-team2",h:"Team-Tab: Grundaufstellung, Tausch-Tipps und Upgrades",p:[],t:"Das Team ist nie mehr leer: Nach der Squad-Wahl steht sofort die Grundaufstellung mit dem festen Angus und deinen freigeschalteten Benchwarmern, der ★-Platz ist für den Superstar. „Superstar-Angebot bewerten“ setzt den besten der 3 Angebote auf seine beste Position und ordnet die Benchwarmer passend um. Bei jedem Spieler steht, ob jemand anderes besser passt (von der Bank, als Benchwarmer oder später beim General Manager), mit Tausch-Knopf. Neu ist außerdem „Upgrades pro Spieler“: passende Fähigkeit, Talente, Combos und welches Talent sich aufzuwerten lohnt. Das Wiki howthegameworks.com ist seit dem letzten Abgleich unverändert, nur 4 interne Talente und 5 interne Relikte ohne Spielfunktion fehlen bei uns.",src:[["Wiki mit Spieldaten","https://howthegameworks.com/tape-to-tape/"]]},
   {id:"n1104-kirby",h:"Ricky Kirby freigeschaltet",p:["Ricky Kirby"],t:"Laut deinem Kompendium-Video ist Ricky Kirby jetzt freigeschaltet (Bedingung: 5 Runs verlieren). Er ist als freigeschaltet markiert und hat sein aktuelles Kompendium-Porträt. Sonst ist im Kompendium noch alles wie heute Morgen, 24 Karten sind noch grau.",src:[]},
   {id:"n1104-superstar",h:"Superstar bestätigt: 3 zufällige Free Agents zur Wahl",p:[],t:"Zu Beginn eines Runs heißt es im Spiel „Superstar auswählen“: Du bekommst 3 zufällige freigeschaltete Free Agents mit ihren Grundwerten angeboten (TMP Tempo, GNK Genauigkeit, SKR Schusskraft, CHK Checking) und nimmst einen. Die Werte auf dem Auswahlbildschirm entsprechen genau den Grundwerten in der App. Neu im Team-Tab: „Superstar-Angebot bewerten“. Trag die 3 Angebote ein, die App sagt dir, wer am besten zu deinem Team und Squad passt, und setzt ihn auf Wunsch direkt ein.",src:[]},
@@ -1703,6 +1711,11 @@ const SQD=[
   r:"Jeder Spieler ist eine andere Angus-Version.",w:[1,.7,1,1],d:[.8,1,.7,.8],tip:"Die Vorlage nutzt die Angus-Werte aus den Squads. Im All Angus Squad haben die Versionen eigene Pool-Werte, siehe die Karten."}
 ];
 const VAR=[["Ausgewogen",[1,1,1,1],"Bester Mix aus Werten, Position und Harmonie."],["Offensiv",[1.1,.6,1.4,1.3],"Mehr Schuss und Genauigkeit, dafür weniger Checks."],["Robust",[1.1,1.5,.8,.8],"Mehr Checking und Tempo, schwer zu überlaufen."]];
+function ssTake(){const c=rtSS.filter(Boolean).map(n=>byName[n]);const sq=SQD.find(s=>s.id===rtSq);const slots=sq.sl.filter(k=>!sq.fx[k]);
+    let best=null;c.forEach(x=>slots.forEach(k=>{const r=evalCand(x,k,skaters(k).filter(o=>o.n!==x.n));if(!best||r.sc>best.sc)best={...r,k}}));
+    if(best){Object.keys(team).forEach(kk=>{if(team[kk]===best.x.n)delete team[kk]});
+      if(ssSlot&&ssSlot!==best.k&&curSq().sl.includes(ssSlot)){const moved=team[best.k];const prev=team[ssSlot];if(moved&&(!prev||byName[prev].t!=="Free Agent"))team[ssSlot]=moved}
+      team[best.k]=best.x.n;ssSlot=best.k;store.set("ss",ssSlot);rebalance();saveTeam();renderRT();toast(`${best.x.n} spielt jetzt ${SLOTS.find(s=>s[0]===best.k)[1]}`)}}
 let rtSq=store.get("rtsq","vanilla"),rtOnly=store.get("rtonly",false),rtOut=null,rtSS=["","",""];
 function ssResult(){
   const c=rtSS.filter(Boolean).map(n=>byName[n]).filter(Boolean);if(!c.length)return "";
@@ -1758,11 +1771,7 @@ function renderRT(){
 $("v-team").addEventListener("change",e=>{if(e.target.dataset.ss!=null){rtSS[+e.target.dataset.ss]=e.target.value;renderRT();return}if(e.target.id==="rt-sq"){rtSq=e.target.value;store.set("rtsq",rtSq);rtOut=null;team=baseTeam();renderRT();saveTeam();toast(`Grundaufstellung ${curSq().n} Squad`)}if(e.target.id==="rt-only"){rtOnly=e.target.checked;store.set("rtonly",rtOnly);if(rtOut){rtOut={sq:rtSq,res:rtGen()}}renderRT()}});
 $("v-team").addEventListener("click",e=>{
   if(e.target.id==="rt-go"){rtOut={sq:rtSq,res:rtGen()};renderRT();return}
-  if(e.target.id==="ss-take"){const c=rtSS.filter(Boolean).map(n=>byName[n]);const sq=SQD.find(s=>s.id===rtSq);const slots=sq.sl.filter(k=>!sq.fx[k]);
-    let best=null;c.forEach(x=>slots.forEach(k=>{const r=evalCand(x,k,skaters(k).filter(o=>o.n!==x.n));if(!best||r.sc>best.sc)best={...r,k}}));
-    if(best){Object.keys(team).forEach(kk=>{if(team[kk]===best.x.n)delete team[kk]});
-      if(ssSlot&&ssSlot!==best.k&&curSq().sl.includes(ssSlot)){const moved=team[best.k];const prev=team[ssSlot];if(moved&&(!prev||byName[prev].t!=="Free Agent"))team[ssSlot]=moved}
-      team[best.k]=best.x.n;ssSlot=best.k;store.set("ss",ssSlot);rebalance();saveTeam();renderRT();toast(`${best.x.n} spielt jetzt ${SLOTS.find(s=>s[0]===best.k)[1]}`)}return}
+  if(e.target.id==="ss-take"){ssTake();return}
   const u=e.target.closest("[data-rt]");if(u){const r=rtOut.res[+u.dataset.rt];team={};Object.entries(r.team).forEach(([k,n])=>{if(SLOTS.some(s=>s[0]===k))team[k]=n});r.bench.forEach((n,i)=>{team[BSL[i]]=n});ssSlot=Object.keys(r.team).find(k=>r.team[k]===r.star)||null;store.set("ss",ssSlot);saveTeam();toast(`Vorlage „${r.v[0]}“ übernommen`);$("rink").scrollIntoView({behavior:"smooth",block:"start"});return}
   const o=e.target.closest("[data-open]");if(o)openSheet(o.dataset.open);
 });
@@ -1924,6 +1933,122 @@ function rebalance(){
   ks.forEach((k,i)=>team[k]=best.p[i]);
 }
 if(!skaters().length){team=baseTeam();store.set("team",team)}
+
+/* ---------- KI-Auswertung von Screenshots ---------- */
+const AIP={
+ claudeapp:{n:"Claude (in der Claude-App, ohne Schlüssel)",app:1},
+ anthropic:{n:"Claude (Anthropic API)",model:"claude-sonnet-5-5",hint:"sk-ant-…",url:"https://console.anthropic.com/settings/keys"},
+ openai:{n:"ChatGPT (OpenAI API)",model:"gpt-4.1-mini",hint:"sk-…",url:"https://platform.openai.com/api-keys"},
+ gemini:{n:"Gemini (Google AI Studio)",model:"gemini-2.5-flash",hint:"AIza…",url:"https://aistudio.google.com/apikey"},
+ compat:{n:"Andere (OpenAI-kompatibel, z. B. OpenRouter, Mistral)",model:"",hint:"Schlüssel",base:"https://openrouter.ai/api/v1",url:"https://openrouter.ai/keys"}
+};
+let aiCfg=Object.assign({prov:"",keys:{},models:{},base:""},store.get("ai",{}));
+const inClaude=!!(window.claude&&window.claude.use);
+let sampleFn=null;
+if(inClaude)(async()=>{try{const s=await claude.use("sample");if(!s)return;const l=await s.limits().catch(()=>null);if(l&&l.images){sampleFn=s;if(!aiCfg.prov||!AIP[aiCfg.prov]||!AIP[aiCfg.prov].app)aiCfg.prov="claudeapp"}}catch(e){}})();
+const aiReady=()=>aiCfg.prov==="claudeapp"?!!sampleFn:!!(aiCfg.prov&&aiCfg.keys[aiCfg.prov]&&(aiCfg.prov!=="compat"||(aiCfg.base&&aiCfg.models.compat)));
+const aiModel=p=>(aiCfg.models[p]||"").trim()||AIP[p].model;
+async function aiCall(prompt,img){
+  const p=aiCfg.prov,key=(aiCfg.keys[p]||"").trim();
+  if(p==="claudeapp"){if(!sampleFn)throw new Error("Claude ist hier nicht verfügbar.");const r=await sampleFn(prompt,img?{images:[img.blob],cache:false}:{cache:false});return r.text}
+  let res,j;
+  if(p==="anthropic"){
+    const content=[...(img?[{type:"image",source:{type:"base64",media_type:"image/jpeg",data:img.b64}}]:[]),{type:"text",text:prompt}];
+    res=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"content-type":"application/json","x-api-key":key,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},body:JSON.stringify({model:aiModel(p),max_tokens:2000,messages:[{role:"user",content}]})});
+    j=await res.json();if(!res.ok)throw new Error(j.error?.message||res.status);return (j.content||[]).map(c=>c.text||"").join("");
+  }
+  if(p==="gemini"){
+    const parts=[...(img?[{inline_data:{mime_type:"image/jpeg",data:img.b64}}]:[]),{text:prompt}];
+    res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(aiModel(p))}:generateContent`,{method:"POST",headers:{"content-type":"application/json","x-goog-api-key":key},body:JSON.stringify({contents:[{role:"user",parts}],generationConfig:{maxOutputTokens:2000}})});
+    j=await res.json();if(!res.ok)throw new Error(j.error?.message||res.status);return (j.candidates?.[0]?.content?.parts||[]).map(x=>x.text||"").join("");
+  }
+  const base=p==="compat"?aiCfg.base.replace(/\/+$/,""):"https://api.openai.com/v1";
+  const content=[{type:"text",text:prompt},...(img?[{type:"image_url",image_url:{url:"data:image/jpeg;base64,"+img.b64}}]:[])];
+  res=await fetch(base+"/chat/completions",{method:"POST",headers:{"content-type":"application/json","authorization":"Bearer "+key},body:JSON.stringify({model:aiModel(p),max_tokens:2000,messages:[{role:"user",content}]})});
+  j=await res.json();if(!res.ok)throw new Error(j.error?.message||res.status);const c=j.choices?.[0]?.message?.content;return Array.isArray(c)?c.map(x=>x.text||"").join(""):(c||"");
+}
+const parseJ=t=>{try{return JSON.parse(t)}catch(e){}const m=t.match(/```(?:json)?\s*([\s\S]*?)```/);if(m)try{return JSON.parse(m[1])}catch(e){}const a=t.indexOf("{"),b=t.lastIndexOf("}");if(a>=0&&b>a)try{return JSON.parse(t.slice(a,b+1))}catch(e){}return null};
+async function prepImg(file){
+  const bm=await createImageBitmap(file);const s=Math.min(1,1568/Math.max(bm.width,bm.height));const c=document.createElement("canvas");c.width=Math.round(bm.width*s);c.height=Math.round(bm.height*s);c.getContext("2d").drawImage(bm,0,0,c.width,c.height);
+  const blob=await new Promise(r=>c.toBlob(r,"image/jpeg",.85));const b64=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(String(fr.result).split(",")[1]);fr.readAsDataURL(blob)});return {blob,b64,url:URL.createObjectURL(blob)};
+}
+const normN=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]/g,"");
+function lev(a,b){const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let p=[...Array(n+1).keys()];for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
+function matchName(s,list){const q=normN(s);if(!q)return null;let best=null,bd=99;list.forEach(n=>{const k=normN(n);let d=k===q?0:(k.includes(q)||q.includes(k))&&Math.min(k.length,q.length)>=5?1:lev(q,k);if(d<bd){bd=d;best=n}});return bd<=Math.max(2,Math.floor(q.length/5))?best:null}
+function aiPrompt(){
+  const sq=curSq();const teamTxt=SLOTS.filter(([k])=>team[k]).map(([k,l,s])=>s+": "+team[k]).concat(BSL.filter(b=>team[b]).map(b=>"Bank: "+team[b])).join(", ");
+  const items=LEX.filter(e=>"tfr".includes(e[0])).map(e=>e[1]);
+  return `Du wertest ein Foto oder einen Screenshot aus dem Hockey-Roguelite "Tape to Tape" (Version 1.0) aus. Die Oberfläche kann deutsch sein: TMP = Tempo/Speed, GNK = Genauigkeit/Accuracy, SKR = Schusskraft/Shot Power, CHK = Checking.
+Bekannte Spieler: ${P.map(x=>x.n).join("; ")}.
+Bekannte Talente, Fähigkeiten und Relikte: ${items.join("; ")}.
+Kontext des Nutzers: Squad ${sq.n} (${sq.r}). Aktuelles Team: ${teamTxt||"leer"}. Freigeschaltete Spieler: ${[...unl].join(", ")}.
+Aufgabe: Erkenne, welcher Bildschirm zu sehen ist, lies Namen und Werte aus und gib eine kurze, konkrete Empfehlung für dieses Team.
+Antworte NUR mit einem JSON-Objekt in genau dieser Form:
+{"screen":"superstar|reward|lineup|compendium|player|run_end|gm|nurse|other","title":"Überschrift auf dem Bildschirm oder kurze Beschreibung","players":[{"name":"Name genau wie in der Liste oben","slot":"LW|C|RW|LD|RD|G|Bank|null","stats":{"tmp":0,"gnk":0,"skr":0,"chk":0},"unlocked":true}],"items":[{"name":"Name genau wie in der Liste oben","kind":"talent|ability|relic"}],"summary":"1 bis 2 Sätze, was zu sehen ist","advice":"Empfehlung auf Deutsch, höchstens 4 Sätze"}
+Regeln: Nur Namen aus den Listen verwenden. stats nur, wenn Werte sichtbar sind, sonst null. slot nur bei Aufstellungen, sonst null. Im Kompendium: gesperrte Karten (???) weglassen, sichtbare Spieler mit unlocked true. Bei "Superstar auswählen" sind es 3 Spieler: screen "superstar". Bei einer Auswahl von Talenten oder Relikten: screen "reward" und alle angebotenen Items in items.`;
+}
+const SLMAP={LW:"lf",C:"c",RW:"rf",LD:"lv",RD:"rv",G:"g"};
+let aiLast=null;
+function openAi(){$("ai").hidden=false;$("backdrop").hidden=false;document.body.classList.add("lock")}
+function closeAi(){$("ai").hidden=true;if($("sheet").hidden&&$("picker").hidden)$("backdrop").hidden=true,document.body.classList.remove("lock")}
+function renderSettings(){
+  const avail=Object.entries(AIP).filter(([k,v])=>v.app?!!sampleFn:!inClaude);
+  const p=aiCfg.prov&&AIP[aiCfg.prov]?aiCfg.prov:(avail[0]||[])[0];const d=p&&AIP[p];
+  $("ai-title").textContent="Einstellungen";
+  $("ai-body").innerHTML=`<div class="abox"><h3>KI für Screenshots</h3>
+   <p class="rtinfo muted">Trag den API-Schlüssel deines Anbieters ein. Er bleibt nur auf diesem Gerät gespeichert und geht direkt an den Anbieter. Die Kosten laufen über dein eigenes Konto dort.${inClaude?" In der Claude-App läuft die Auswertung über dein Claude-Konto, ohne Schlüssel. Eigene Schlüssel gehen nur in der Homescreen-App.":""}</p>
+   <label class="fld">Anbieter<select id="ai-prov">${avail.map(([k,v])=>`<option value="${k}"${k===p?" selected":""}>${esc(v.n)}</option>`).join("")}</select></label>
+   ${d&&!d.app?`<label class="fld">API-Schlüssel<input id="ai-key" type="password" autocomplete="off" spellcheck="false" placeholder="${esc(d.hint)}" value="${esc(aiCfg.keys[p]||"")}"></label>
+   ${p==="compat"?`<label class="fld">Basis-URL<input id="ai-base" type="url" spellcheck="false" placeholder="${esc(d.base)}" value="${esc(aiCfg.base||d.base)}"></label>`:""}
+   <label class="fld">Modell${d.model?` (leer = ${esc(d.model)})`:""}<input id="ai-model" type="text" spellcheck="false" placeholder="${esc(d.model||"z. B. google/gemini-2.5-flash")}" value="${esc(aiCfg.models[p]||"")}"></label>
+   <p class="rtinfo muted">Schlüssel bekommst du hier: <a href="${d.url}" target="_blank" rel="noopener">${esc(new URL(d.url).host)}</a></p>`:d?`<p class="rtinfo">Bereit: Die Auswertung läuft über dein Claude-Konto. Beim ersten Mal fragt Claude einmal um Erlaubnis.</p>`:`<p class="rtinfo">Hier ist keine KI verfügbar.</p>`}
+   <div class="rtrow"><button class="rtgo" id="ai-save">Speichern</button><button class="rtuse" id="ai-test">Verbindung testen</button>${d&&!d.app?`<button class="ghost inl" id="ai-del">Schlüssel löschen</button>`:""}</div><p class="rtinfo" id="ai-msg"></p></div>`;
+}
+function saveSettings(){const p=$("ai-prov").value;aiCfg.prov=p;if($("ai-key"))aiCfg.keys[p]=$("ai-key").value.trim();if($("ai-model"))aiCfg.models[p]=$("ai-model").value.trim();if($("ai-base"))aiCfg.base=$("ai-base").value.trim();store.set("ai",aiCfg)}
+function aiResultHtml(r){
+  const pl=(r.players||[]).map(o=>({...o,m:matchName(o.name,P.map(x=>x.n))})).filter(o=>o.m);
+  const it=(r.items||[]).map(o=>({...o,m:matchName(o.name,LEX.filter(e=>"tfr".includes(e[0])).map(e=>e[1]))})).filter(o=>o.m);
+  aiLast={r,pl,it};
+  let h=`<div class="abox"><h3>${esc(r.title||"Erkannt")}</h3><p class="rtinfo">${esc(r.summary||"")}</p>${r.advice?`<p class="rtinfo"><b>Empfehlung:</b> ${esc(r.advice)}</p>`:""}</div>`;
+  const s=r.screen;
+  if(s==="superstar"&&pl.length){const fa=pl.filter(o=>byName[o.m].t==="Free Agent").slice(0,3);rtSS=[0,1,2].map(i=>fa[i]?fa[i].m:"");
+    h+=`<div class="abox"><h3>Superstar-Angebot · ${esc(curSq().n)} Squad</h3>${ssResult()}</div>`}
+  else if(s==="lineup"&&pl.length){h+=`<div class="abox"><h3>Aufstellung</h3>${pl.map(o=>`<div class="rtp"><span class="rts">${esc(o.slot||"?")}</span><button class="mate" data-open="${esc(o.m)}">${esc(o.m)}</button></div>`).join("")}<button class="rtuse" id="ai-team">Als mein Team übernehmen</button></div>`}
+  else if(s==="compendium"&&pl.length){const neu=pl.filter(o=>o.unlocked!==false&&!unl.has(o.m));h+=`<div class="abox"><h3>Kompendium</h3><p class="rtinfo">${pl.length} Spieler erkannt${neu.length?`, davon neu freigeschaltet: <b>${neu.map(o=>esc(o.m)).join(", ")}</b>`:", nichts Neues"}.</p>${neu.length?`<button class="rtuse" id="ai-unl">Als freigeschaltet markieren</button>`:""}</div>`}
+  else if(pl.length){h+=`<div class="abox"><h3>Spieler</h3>${pl.map(o=>{const x=byName[o.m],st=o.stats;return `<div class="rtp"><span class="rts">${esc(o.slot&&o.slot!=="null"?o.slot:"")}</span><button class="mate" data-open="${esc(o.m)}">${esc(o.m)}</button>${st&&x.s?`<small>TMP ${st.tmp} (Basis ${x.s[0]}) · GNK ${st.gnk} (${x.s[3]}) · SKR ${st.skr} (${x.s[2]}) · CHK ${st.chk} (${x.s[1]})</small>`:""}</div>`}).join("")}</div>`}
+  if(it.length){const sug=suggestItems(skaters(),curSq());const good=new Set(sug?[...sug.tal,...sug.rel].map(o=>o.e[1]):[]);
+    const who=n=>SLOTS.filter(([k])=>team[k]&&k!=="g").map(([k])=>[k,byName[team[k]]]).filter(([k,x])=>upgFor(x,k).items.some(i=>i.n===n)).map(([k,x])=>x.n.split(" ").slice(-1)[0]);
+    h+=`<div class="abox"><h3>${s==="reward"?"Belohnung":"Items"}</h3>${it.map(o=>{const e=LEX.find(e=>e[1]===o.m&&"tfr".includes(e[0]));const w=who(o.m);return `<div class="sug"><span><button class="lexchip" data-lex="${esc(o.m)}">${esc(o.m)}</button>${good.has(o.m)?' <em class="ukind">passt zum Team</em>':""}${e&&e[3]==="meiden"?' <em class="ukind" style="color:#ff8a80">eher meiden</em>':""}</span><small>${esc(e?e[2]:"")}</small>${w.length?`<em>passt besonders zu ${esc(w.join(", "))}</em>`:""}</div>`}).join("")}</div>`}
+  const miss=[...(r.players||[]).filter(o=>o.name&&!matchName(o.name,P.map(x=>x.n))).map(o=>o.name),...(r.items||[]).filter(o=>o.name&&!it.some(i=>i.name===o.name)).map(o=>o.name)];
+  if(miss.length)h+=`<p class="rtinfo muted">Nicht in der App gefunden: ${miss.map(esc).join(", ")}</p>`;
+  return h;
+}
+async function runShot(file){
+  openAi();$("ai-title").textContent="Screenshot auswerten";
+  if(!aiReady()){renderSettings();$("ai-msg").textContent="Bitte zuerst einen Anbieter und Schlüssel eintragen.";return}
+  $("ai-body").innerHTML=`<div class="abox"><p class="rtinfo">Bild wird vorbereitet…</p></div>`;
+  let img;try{img=await prepImg(file)}catch(e){$("ai-body").innerHTML=`<div class="abox"><p class="rtinfo">Das Bild konnte nicht gelesen werden.</p></div>`;return}
+  $("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt=""><div class="abox"><p class="rtinfo">Wird ausgewertet mit ${esc(AIP[aiCfg.prov].n)}… das dauert meist 5 bis 30 Sekunden.</p></div>`;
+  try{const t=await aiCall(aiPrompt(),img);const r=parseJ(t);
+    $("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt="">`+(r?aiResultHtml(r):`<div class="abox"><p class="rtinfo">${esc(t.slice(0,1500))}</p></div>`);
+  }catch(e){$("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt=""><div class="abox"><h3>Fehler</h3><p class="rtinfo">${esc(e.code==="not_granted"?"Claude wurde nicht erlaubt.":e.code==="rate_limited"?"Gerade zu viele Anfragen, bitte später nochmal.":(e.message||String(e)))}</p><p class="rtinfo muted">Prüfe in den Einstellungen Schlüssel und Modellnamen.</p></div>`}
+}
+$("ab-cam").onclick=()=>{if(!aiReady()){openAi();renderSettings();$("ai-msg").textContent="Bitte zuerst einen Anbieter und Schlüssel eintragen.";return}$("ai-file").value="";$("ai-file").click()};
+$("ab-set").onclick=()=>{openAi();renderSettings()};
+$("ai-file").onchange=e=>{const f=e.target.files&&e.target.files[0];if(f)runShot(f)};
+$("ai-close").onclick=closeAi;
+$("ai").addEventListener("change",e=>{if(e.target.id==="ai-prov"){aiCfg.prov=e.target.value;renderSettings()}});
+$("ai").addEventListener("click",async e=>{
+  const id=e.target.id;
+  if(id==="ai-save"){saveSettings();$("ai-msg").textContent=aiReady()?"Gespeichert. Du kannst jetzt mit 📷 Screenshots auswerten.":"Gespeichert, aber es fehlt noch etwas (Schlüssel, URL oder Modell).";return}
+  if(id==="ai-del"){aiCfg.keys[aiCfg.prov]="";store.set("ai",aiCfg);renderSettings();$("ai-msg").textContent="Schlüssel gelöscht.";return}
+  if(id==="ai-test"){saveSettings();if(!aiReady()){$("ai-msg").textContent="Es fehlt noch etwas (Schlüssel, URL oder Modell).";return}$("ai-msg").textContent="Teste…";try{const t=await aiCall('Antworte nur mit dem Wort OK.');$("ai-msg").textContent=t&&t.trim()?"✓ Verbindung klappt.":"Keine Antwort erhalten. Modellnamen prüfen."}catch(err){$("ai-msg").textContent="Fehler: "+(err.message||err.code||err)}return}
+  if(id==="ss-take"&&typeof ssTake==="function"){ssTake();closeAi();showView("team");return}
+  if(id==="ai-team"&&aiLast){const t={};aiLast.pl.forEach((o,i)=>{const k=SLMAP[o.slot];if(k&&!t[k])t[k]=o.m;else if(o.slot==="Bank"){const b=BSL.find(b=>!t[b]);if(b)t[b]=o.m}});if(!t.g)t.g="Bobby Butcher";team=t;saveTeam();toast("Aufstellung übernommen");closeAi();showView("team");return}
+  if(id==="ai-unl"&&aiLast){const neu=aiLast.pl.filter(o=>o.unlocked!==false&&!unl.has(o.m));neu.forEach(o=>unl.add(o.m));store.set("unl",[...unl]);render();toast(`${neu.length} Spieler als freigeschaltet markiert`);closeAi();return}
+  const o=e.target.closest("[data-open]");if(o){closeAi();openSheet(o.dataset.open);return}
+  const l=e.target.closest("[data-lex]");if(l){closeAi();openLex(l.dataset.lex)}
+});
 
 /* ---------- Vergleich ---------- */
 function addToCmp(n){
