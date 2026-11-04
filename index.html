@@ -330,6 +330,7 @@ details.infowrap{border-top:1px solid var(--line);padding-top:0;font-size:inheri
 .pair.g i{background:var(--goodbg);color:var(--good)}.pair.b i{background:var(--badbg);color:var(--bad)}
 .pair small{color:var(--muted);font-size:12.5px}
 .muted{color:var(--muted);font-size:13px;margin:0}
+.rtwrap{display:grid;gap:10px;margin-bottom:14px}.rtrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.rtrow select{font:600 14px var(--f-body);padding:8px 10px;border:2px solid var(--ink);border-radius:10px;background:#0f2140;color:var(--ice);flex:1;min-width:0}.rtchk{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}.rtinfo{margin:0;font-size:13.5px;line-height:1.45}.rtinfo b{color:var(--ice)}.rtgo,.rtuse{justify-self:start;border:2px solid var(--ink);border-radius:10px;background:var(--blue,#3b82f6);color:#fff;font:700 13px var(--f-num);letter-spacing:.06em;text-transform:uppercase;padding:9px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ink)}.rtv .muted{margin:0;font-size:13px}.rtp{display:grid;grid-template-columns:44px 1fr;gap:2px 8px;align-items:center}.rtp small{grid-column:2;color:var(--muted);font-size:12px}.rts{font:800 12px var(--f-num);color:var(--muted)}
 .ghost{display:block;margin:16px auto 0;border:1.5px solid var(--line);background:none;border-radius:999px;padding:8px 16px;color:var(--muted);cursor:pointer;font:700 12.5px var(--f-num);letter-spacing:.1em;text-transform:uppercase}
 
 /* Vergleich */
@@ -664,7 +665,7 @@ details.entry{border-left:7px solid var(--red)!important}
         <div><b>Harmonie</b>Die Mitspieler-Tipps sind meine Einschätzung aus Werten, Fähigkeiten und Forum-Tipps. Offizielle Synergie-Daten gibt es nicht.</div>
       </div>
     </details>
-    <p class="appver">App-Version 04.11. 10:12</p>
+    <p class="appver">App-Version 04.11. 15:22</p>
     <details class="infowrap"><summary>Woher die Daten stammen</summary>
       <div class="info">
         <div><b>Werte</b>Speed, Checking, Shot Power und Accuracy stammen aus der Early-Access-Zeit, aus Community-Screenshots oder aus deinem eigenen Spiel (steht dann dabei). Gestreifte Balken liegen über 100.</div>
@@ -678,6 +679,7 @@ details.entry{border-left:7px solid var(--red)!important}
   <section class="view" id="v-team" hidden>
     <h2 class="vh">Mein Team</h2>
     <p class="vsub">Tippe auf eine Position und wähle einen Spieler. Die App zeigt, wer zusammenpasst und wer auf der falschen Position steht. Deine Auswahl bleibt auf diesem Gerät gespeichert.</p>
+    <div id="rt" class="rtwrap"></div>
     <div class="rink" id="rink"></div>
     <div class="ana" id="ana"></div>
     <button class="ghost" id="team-clear">Team leeren</button>
@@ -760,6 +762,7 @@ const P=[{"n":"Chloe Crockett","dc":"Pass-Maschine: Mit Passtempo-Boni kommen ih
 /* Neuerungen: je Fundtag ein Block; p = betroffene Karten, low = unsichere Quelle */
 const NEWS=[
  {d:"04.11.2026",note:"Abgleich mit der Free-Agent- und Freischalt-Liste aus den Spieldaten von 1.0.",items:[
+  {id:"n1104-vorlagen",h:"Neu: Run-Vorlagen im Team-Tab",p:[],t:"Squad wählen und Vorlagen erzeugen: Die App zeigt, wer fest im Team ist, welche Regeln gelten und wie viele Benchwarmer erlaubt sind. Sie stellt dann drei Aufstellungen zusammen, jeweils mit einem anderen Startspieler, passenden Benchwarmern, Bank und Free Agents, nach denen du später greifen solltest. Auf Wunsch nur mit freigeschalteten Spielern, mit einem Klick ins Team übernehmen.",src:[]},
   {id:"n1104-runs",h:"Werte aus Community-Runs, Superstar-Werte korrigiert",p:["Joan Ozark","Willie Brie","Rory McShaggy","Cam Amber","Calvin Dord","Chloe Crockett","Kelly Jelly","Fortune Banks","Angus McDefense","Mark Bench","Boring Dude","Bungus McBooty"],t:"Ausgewertet wurden Spiel-Screenshots aus dem Discord (Aufstellungen und Run-Auswertungen). 29 Karten zeigen jetzt, welche Werte Spieler in echten Runs erreicht haben, z. B. Angus McDefense mit OVR 244. Die Aufstellungen zeigen außerdem: Rory und die anderen „Superstars“ spielen in 1.0 mit ihren Free-Agent-Werten. Die bisherigen Superstar-Werte gehören zu den Gegner-Teams und stehen jetzt als Gegner-Version auf der Karte. Wie das Spiel den Startspieler nennt und wer dafür in Frage kommt, wird noch geprüft. Bis dahin ist der Filter „Superstars“ ausgeblendet.",src:[["Tape-to-Tape-Discord","https://discord.com/channels/799745167476260905/799745168022437910"]]},
   {id:"n1104-werte",h:"Alte Early-Access-Werte ersetzt",p:["Kelly Jelly","Sergei Lancelov","Gedeon LaMoustache","Clementine McShaggy","Buck Wurst","Ryan Pepito","Joan Ozark","Willie Brie","Rory McShaggy","Cam Amber","Calvin Dord","Chloe Crockett"],t:"12 Karten zeigten noch Werte aus dem Early Access. Jetzt stehen dort die Werte aus 1.0, z. B. Kelly Jelly Speed 144 statt 81. Kelly, Sergei, Gedeon, Clementine, Buck, Ryan, Ozzie und Fortune Banks gibt es in 1.0 nur als Free Agent.",src:[["Wiki mit Spieldaten","https://howthegameworks.com/tape-to-tape/mechanics/npcs-and-events.html"]]},
   {id:"n1104-angus",h:"Angus-Versionen als eigene Karten, wie im Kompendium",p:["Angus McShaggy","Angus O'Liner","Angus FreshShaggy","Bear Grohl","Wobbly McShatterface"],t:"Im Kompendium hat jede Angus-Version eine eigene Karte. Deshalb gibt es jetzt 17 Angus-Karten mit Squad-Werten, All-Angus-Pool-Version und Freischalt-Bedingung des Squads. Neu sind die Porträts von O'Liner und FreshShaggy. McShaky und McTalent sind ungenutzt und fehlen deshalb. Brory McShugger ist nur der Klon-Name von Rory. Außerdem: Bear Grohl hat Bonecrusher, Wobbly die Fähigkeit Prod.",src:[["Squads in den Spieldaten","https://howthegameworks.com/tape-to-tape/mechanics/squads-difficulty-unlocks.html"]]},
@@ -1635,6 +1638,96 @@ $("rink").addEventListener("click",e=>{const b=e.target.closest("[data-slot]");i
 $("ana").addEventListener("click",()=>{});
 $("team-clear").onclick=()=>{if(!Object.keys(team).length)return;team={};saveTeam();toast("Team geleert")};
 
+/* ---------- Run-Vorlagen ---------- */
+// w = Gewichte [Speed, Checking, Shot Power, Accuracy] für Stürmer, d = für Verteidiger
+const SQD=[
+ {id:"vanilla",n:"Vanilla",fx:{lv:"Angus McShaggy"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"Immer frei",
+  r:"Ausgewogenes Team ohne Sonderregeln.",w:[1,.6,1,1],d:[.8,1,.6,.8],tip:"Gute Allrounder und ein Startspieler mit klarer Stärke. Angus spielt anfangs links hinten, du kannst ihn später nach vorn ziehen."},
+ {id:"oldschool",n:"Oldschool",fx:{lf:"Angus McNineties"},sl:["lf","c","rf","lv","rv"],bw:0,fa:0,frei:"Immer frei",
+  r:"Keine Verletzungen, keine Bank, alte Regeln.",w:[1,.8,1,.9],d:[.8,1.1,.6,.7],tip:"Ohne Bank zählt nur die Startaufstellung. Robuste Spieler, die das ganze Spiel durchhalten."},
+ {id:"defense",n:"Defense",fx:{lv:"Angus McDefense"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"Immer frei",
+  r:"Tore von Verteidigern geben dem Team +2 OVR (Brickie Plushie, Blue Marker).",w:[1,.5,.9,1],d:[.7,.5,1.2,1.2],tal:["Point Sniper","Curve Ball","Sonic Slap"],tip:"Auf die Verteidigerplätze gehören Schützen, denn ihre Tore bringen OVR. Crit-Talente machen Angus McDefense sehr stark."},
+ {id:"snes",n:"16-Bit",fx:{lf:"Angus McRoenick"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"Mit 2 Squads auf Pro gewinnen (laut Hotfix ab Start frei)",
+  r:"Spieler drehen sehr langsam, kein Dash.",w:[.6,.7,1,1.2],d:[.5,1,.8,1],tip:"Hohe Speed hilft wenig, weil Kurven schwer fallen. Genauigkeit und Schuss zählen mehr."},
+ {id:"trio",n:"Trio",fx:{rf:"Angus McTrois"},pre:{c:"Freddy Kovalski"},sl:["lf","c","rf"],bw:3,fa:1,frei:"Mit 1 Squad auf Pro gewinnen",
+  r:"Nur drei Feldspieler. Tore mit zwei Vorlagen geben +2 OVR (Cerbie Plushie).",w:[1,.6,.9,1.1],d:[1,.6,.9,1.1],tal:["Flawless Feeder","Express Delivery"],tip:"Passgeber lohnen sich doppelt, weil Tore mit zwei Vorlagen OVR bringen. Bis zu 3 Benchwarmer auf die Bank."},
+ {id:"speedy",n:"Speedy",fx:{lf:"Angus McShortstuff"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"Mit 6 Squads auf Pro gewinnen",
+  r:"Alle sehr schnell, aber leicht umzuwerfen. Cheeto Plushie: +40 Speed, −200 Checking.",w:[.5,0,1.2,1.2],d:[.5,0,1,1.1],tip:"Checking ist hier wertlos. Schuss und Genauigkeit entscheiden."},
+ {id:"modern",n:"Modern",fx:{c:"Annual McShaggy"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"Mit dem 16-Bit Squad auf Pro gewinnen (laut Hotfix ab Start frei)",
+  r:"Abseits und manueller Poke-Check.",w:[1,.6,.9,1.1],d:[.9,1,.6,.8],tip:"Wegen Abseits zählen saubere Pässe und Tempo. Gute Poke-Checker hinten."},
+ {id:"dominator",n:"Dominator",fx:{c:"Angus McShaggynator"},sl:["lf","c","rf","lv"],bw:1,fa:1,frei:"Mit dem Modern Squad auf Pro gewinnen",
+  r:"4 gegen 4 mit zufälligen guten und schlechten Lucky Pucks, nur Max-goal.",w:[1.1,.6,1,1],d:[1,.9,.8,.8],tip:"Mehr Platz auf dem Eis: Tempo und Abschluss sind wichtiger als Checks."},
+ {id:"speedrun",n:"Speedrun",fx:{lv:"Angus Skip-Shaggy"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"Mit dem Trio Squad auf Pro gewinnen",
+  r:"Du musst vor Ende des ersten Drittels gewinnen. Relikte Indecisive und Remarkable Rock.",w:[1.1,.3,1.2,1.1],d:[1,.4,1,1],tip:"Alles auf Angriff: schnelle Tore, Verteidiger dürfen mitschießen."},
+ {id:"slapshot",n:"Slapshot",fx:{lv:"Bangus McClapper"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"50 Tore per Schlagschuss",
+  r:"Nur Schlagschüsse sind wirksam (Corn dog-stic, Slapshot Plushie).",w:[.6,.5,1.4,1],d:[.5,.6,1.3,.9],tal:["Charge Shot","Sonic Slap","Wind Up"],tip:"Shot Power ist alles. Harte Schützen auch hinten, Schlagschüsse von der blauen Linie."},
+ {id:"violence",n:"Violence",fx:{lf:"Angus EggShaggy"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"200 Knockouts in einem Run",
+  r:"Jeder Check knockt aus, Spieler stehen schnell wieder auf.",w:[1.1,.9,1,.9],d:[1,1.1,.6,.6],tal:["Bonecrusher","One Strike","Sonic Slap"],tip:"Tempo zum Hinchecken, danach schnell schießen, bevor der Gegner wieder steht. Cassoulet passt gut auf die Bank."},
+ {id:"referee",n:"Referee",fx:{c:"Angus McFlurry"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"Die Officials 10-mal schlagen",
+  r:"Du spielst 6 gegen 5 als Schiri-Team (Whistle Blower, Briefcase).",w:[1,.6,1,1],d:[.8,1,.6,.8],tip:"Die Schiris helfen mit, also kann das Team offensiver sein. Keine Stockwurf-Items in diesem Squad."},
+ {id:"solo",n:"Solo",fx:{c:"Angus LockShaggy"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"200 Tore mit einem Angus",
+  r:"Du steuerst den ganzen Run nur Angus.",w:[1,.7,.9,1],d:[.8,1.1,.6,.8],tip:"Die KI spielt den Rest: robuste Allrounder und starke Verteidiger, die ohne dich klarkommen."},
+ {id:"stats",n:"Stats",fx:{lf:"Angus McStastny"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"50-mal das Training besuchen",
+  r:"Squad mit Fokus auf Werte-Boni.",w:[1,.7,1,1],d:[.8,1,.7,.8],tip:"Spieler mit hohen Grundwerten profitieren am meisten von Werte-Boni."},
+ {id:"gm",n:"General Manager",fx:{lf:"General McShaggy"},sl:["lf","c","rf","lv","rv"],bw:0,fa:0,pool:"fa",frei:"10 Free Agents freischalten",
+  r:"Wechselnder Kader aus Free Agents mit 2 bis 6 Spiele langen Verträgen. Angus geht nach 4 Spielen.",w:[1,.7,1,1],d:[.8,1,.7,.8],tip:"Kürzere Verträge bringen stärkere Spieler. Die Vorlage zeigt, nach welchen Free Agents du greifen solltest."},
+ {id:"lines",n:"Double Decker",fx:{lf:"Ricky Kirby",c:"Freddy Kovalski",rf:"Mark Bench",lv:"Angus O'Liner",rv:"Johnny Faceless"},line2:["Maurice Cassoulet","Buster Brewster","Stu Stumple","Boring Dude","Angus FreshShaggy"],sl:["lf","c","rf","lv","rv"],bw:5,fa:0,frei:"4 Benchwarmer freischalten",
+  r:"Zwei komplette Reihen, die du im Spiel selbst wechselst. Quests sind aus.",w:[1,.7,1,1],d:[.8,1,.7,.8],tip:"Die Aufstellung ist fest vorgegeben. Die Reihenfolge der Spieler ist aus den Spieldaten abgeleitet, nicht bestätigt."},
+ {id:"gauntlet",n:"Gauntlet",fx:{c:"Angus McGauntlet"},sl:["lf","c","rf","lv","rv"],bw:2,fa:0,frei:"Mit 10 Squads auf Pro gewinnen",
+  r:"Ein Run gegen jedes Team, schwächerer Bank-Bonus, volle Aufstellung plus Bank nötig.",w:[1,.8,1,1],d:[.8,1.1,.7,.8],tip:"Viele Spiele: gut für Benchwarmer-Quests. Robuste Spieler, die lange durchhalten."},
+ {id:"bum",n:"Bum",fx:{lf:"Gary Buttman",rf:"Barry Butthead",c:"Bungus McBooty"},sl:["lf","c","rf","lv","rv"],bw:1,fa:1,frei:"Mit 8 Squads auf Pro gewinnen",
+  r:"Drei Elite-Spieler starten mit 0 OVR und geben Boni von der Bank.",w:[1,.7,1,1],d:[.8,1.1,.6,.8],tip:"Gary, Barry und Bungus wirken vor allem von der Bank. Die übrigen Plätze brauchen echte Leistungsträger."},
+ {id:"allangus",n:"All Angus",fx:{},sl:["lf","c","rf","lv","rv"],bw:1,fa:0,pool:"angus",frei:"17 Squads freischalten",
+  r:"Jeder Spieler ist eine andere Angus-Version.",w:[1,.7,1,1],d:[.8,1,.7,.8],tip:"Die Vorlage nutzt die Angus-Werte aus den Squads. Im All Angus Squad haben die Versionen eigene Pool-Werte, siehe die Karten."}
+];
+const VAR=[["Ausgewogen",[1,1,1,1],"Bester Mix aus Werten, Position und Harmonie."],["Offensiv",[1.1,.6,1.4,1.3],"Mehr Schuss und Genauigkeit, dafür weniger Checks."],["Robust",[1.1,1.5,.8,.8],"Mehr Checking und Tempo, schwer zu überlaufen."]];
+let rtSq=store.get("rtsq","vanilla"),rtOnly=store.get("rtonly",false),rtOut=null;
+function rtScore(x,k,sq,v,chosen){
+  const s=x.s||[0,0,0,0],isD=k==="lv"||k==="rv",w=(isD?sq.d:sq.w).map((a,i)=>a*v[1][i]);
+  let sc=s.reduce((a,b,i)=>a+Math.min(b,150)*w[i],0)/w.reduce((a,b)=>a+b,0);
+  const f=fitOf(x,NEED[k]);sc+={good:12,ok:5,unk:0,bad:-8}[f[0]];
+  const tl=[x.ab,x.ta].filter(Boolean).join(",");(sq.tal||[]).forEach(t=>{if(tl.includes(t))sc+=10});
+  chosen.forEach(c=>{if(x.y.includes(c.n)||c.y.includes(x.n))sc+=12;if(x.no.includes(c.n)||c.no.includes(x.n))sc-=15});
+  if(x.o===0)sc-=30;return sc;
+}
+function rtGen(){
+  const sq=SQD.find(s=>s.id===rtSq);const fixed=Object.assign({},sq.fx,sq.pre||{});const fixedN=Object.values(fixed);
+  const ok=x=>x.pos!=="Goalie"&&!fixedN.includes(x.n)&&(!rtOnly||unl.has(x.n));
+  const FA=P.filter(x=>x.t==="Free Agent"&&ok(x)),BW=P.filter(x=>x.t==="Benchwarmer"&&ok(x)),AN=P.filter(x=>(x.t==="Angus"||x.t==="Kapitän")&&ok(x));
+  const fill=sq.pool==="angus"?AN:sq.pool==="fa"?FA:BW;const free=sq.sl.filter(k=>!fixed[k]);const prevFA=new Set();
+  return VAR.map(v=>{const team={...fixed},why={},used=new Set(fixedN);
+    Object.keys(sq.pre||{}).forEach(k=>why[k]="vorbelegt, austauschbar");
+    const chosen=()=>Object.values(team).map(n=>byName[n]).filter(Boolean);
+    const pick=(cands,slots,tag)=>{let best=null,bs=-1e9,bk=null;cands.forEach(x=>{if(used.has(x.n))return;slots.forEach(k=>{const s=rtScore(x,k,sq,v,chosen());if(s>bs){bs=s;best=x;bk=k}})});
+      if(best){used.add(best.n);team[bk]=best.n;const harm=chosen().some(c=>c.n!==best.n&&(best.y.includes(c.n)||c.y.includes(best.n)));why[bk]=tag+(harm?", harmoniert":"")}return best};
+    let star=null;
+    if(sq.fa&&free.length){star=pick(FA.filter(x=>!prevFA.has(x.n)),free,"Startspieler");if(star)prevFA.add(star.n)}
+    free.filter(k=>!team[k]).forEach(k=>pick(fill,[k],sq.pool==="angus"?"Angus-Version":sq.pool==="fa"?"vom General Manager":"Benchwarmer"));
+    team.g="Bobby Butcher";
+    const bench=sq.bw?fill.filter(x=>!used.has(x.n)).map(x=>({x,s:rtScore(x,"c",sq,v,chosen())})).sort((a,b)=>b.s-a.s).slice(0,sq.bw).map(o=>o.x.n):[];
+    const later=FA.filter(x=>!used.has(x.n)).map(x=>({x,s:Math.max(...sq.sl.map(k=>rtScore(x,k,sq,v,chosen())))})).sort((a,b)=>b.s-a.s).slice(0,3).map(o=>o.x.n);
+    return {v,team,why,bench,later,star:star&&star.n}});
+}
+function renderRT(){
+  const sq=SQD.find(s=>s.id===rtSq);
+  const fx=Object.entries(sq.fx).map(([k,n])=>`${SLOTS.find(s=>s[0]===k)[2]} ${esc(n)}`).join(" · ");
+  let h=`<div class="abox rt"><h3>Run-Vorlage</h3><div class="rtrow"><select id="rt-sq" aria-label="Squad wählen">${SQD.map(s=>`<option value="${s.id}"${s.id===rtSq?" selected":""}>${s.n} Squad</option>`).join("")}</select>
+  <label class="rtchk"><input type="checkbox" id="rt-only"${rtOnly?" checked":""}> nur freigeschaltete</label></div>
+  <p class="rtinfo"><b>Regel:</b> ${esc(sq.r)}</p>
+  <p class="rtinfo"><b>Fest drin:</b> ${fx||"keiner, alle Plätze frei"}${sq.pre?` · vorbelegt: ${Object.values(sq.pre).map(esc).join(", ")}`:""}${sq.line2?` · 2. Reihe: ${sq.line2.map(esc).join(", ")}`:""}</p>
+  <p class="rtinfo"><b>Feldspieler:</b> ${sq.sl.length} · <b>Benchwarmer:</b> ${sq.bw} · <b>Freischalten:</b> ${esc(sq.frei)}</p>
+  <p class="rtinfo muted">${esc(sq.tip)} Aufbau laut Community-Screenshots: Angus, ${sq.fa?"ein Free Agent als Startspieler, ":""}${sq.pool==="angus"?"weitere Angus-Versionen":sq.pool==="fa"?"die übrigen Plätze mit Free Agents vom General Manager":"die übrigen Plätze mit Benchwarmern"}. Wird mit deinen Screenshots noch bestätigt.</p>
+  <button class="rtgo" id="rt-go">Vorlagen erzeugen</button></div>`;
+  if(rtOut&&rtOut.sq===rtSq)h+=rtOut.res.map((r,i)=>`<div class="abox rtv"><h3>${r.v[0]}${r.star?" · mit "+esc(r.star):""}</h3><p class="muted">${r.v[2]}</p>${SLOTS.filter(([k])=>r.team[k]).map(([k,l,s])=>{const x=byName[r.team[k]];return `<div class="rtp"><span class="rts">${s}</span><button class="mate" data-open="${esc(x.n)}">${esc(x.n)}</button><small>${sq.fx[k]?"fest drin":esc(r.why[k]||"")}${x.o!=null?` · Ø ${x.o}`:""}</small></div>`}).join("")}${r.bench.length?`<div class="rtp"><span class="rts">Bank</span><span>${r.bench.map(n=>`<button class="mate" data-open="${esc(n)}">${esc(n)}</button>`).join(" ")}</span></div>`:""}${r.later.length?`<div class="rtp"><span class="rts">Später</span><span>${r.later.map(n=>`<button class="mate" data-open="${esc(n)}">${esc(n)}</button>`).join(" ")}</span><small>Free Agents, nach denen du beim General Manager greifen solltest</small></div>`:""}<button class="rtuse" data-rt="${i}">Ins Team übernehmen</button></div>`).join("");
+  $("rt").innerHTML=h;
+}
+$("rt").addEventListener("change",e=>{if(e.target.id==="rt-sq"){rtSq=e.target.value;store.set("rtsq",rtSq);rtOut=null;renderRT()}if(e.target.id==="rt-only"){rtOnly=e.target.checked;store.set("rtonly",rtOnly);if(rtOut){rtOut={sq:rtSq,res:rtGen()}}renderRT()}});
+$("rt").addEventListener("click",e=>{
+  if(e.target.id==="rt-go"){rtOut={sq:rtSq,res:rtGen()};renderRT();return}
+  const u=e.target.closest("[data-rt]");if(u){const r=rtOut.res[+u.dataset.rt];team={};Object.entries(r.team).forEach(([k,n])=>{if(SLOTS.some(s=>s[0]===k))team[k]=n});saveTeam();toast(`Vorlage „${r.v[0]}“ übernommen`);$("rink").scrollIntoView({behavior:"smooth",block:"start"});return}
+  const o=e.target.closest("[data-open]");if(o)openSheet(o.dataset.open);
+});
+
 /* ---------- Vergleich ---------- */
 function addToCmp(n){
   if(cmpSel.includes(n)){toast(`${n} ist schon im Vergleich`);return}
@@ -1773,7 +1866,7 @@ function showView(v){
   Object.keys(VT).forEach(k=>$("v-"+k).hidden=k!==v);
   document.querySelectorAll(".bnav button").forEach(b=>b.toggleAttribute("aria-current",false)||b.dataset.view===v&&b.setAttribute("aria-current","page"));
   $("tools").hidden=v!=="spieler";$("vtitle").textContent=VT[v];
-  if(v==="team")renderTeam();if(v==="cmp")renderCmp();if(v==="news")renderNews();
+  if(v==="team"){renderRT();renderTeam()}if(v==="cmp")renderCmp();if(v==="news")renderNews();
   window.scrollTo({top:0,behavior:"auto"});
 }
 document.querySelector(".bnav").addEventListener("click",e=>{const b=e.target.closest("[data-view]");if(b){if(!$("sheet").hidden)closeSheet();showView(b.dataset.view)}});
