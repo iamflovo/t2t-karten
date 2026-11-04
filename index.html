@@ -333,6 +333,7 @@ details.infowrap{border-top:1px solid var(--line);padding-top:0;font-size:inheri
 .rtwrap{display:grid;gap:10px;margin-bottom:14px}.rtrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.rtrow select{font:600 14px var(--f-body);padding:8px 10px;border:2px solid var(--ink);border-radius:10px;background:#0f2140;color:var(--ice);flex:1;min-width:0}.rtchk{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}.rtinfo{margin:0;font-size:13.5px;line-height:1.45}.rtinfo b{color:var(--ice)}.rtgo,.rtuse{justify-self:start;border:2px solid var(--ink);border-radius:10px;background:var(--blue,#3b82f6);color:#fff;font:700 13px var(--f-num);letter-spacing:.06em;text-transform:uppercase;padding:9px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ink)}.rtv .muted{margin:0;font-size:13px}.rtp{display:grid;grid-template-columns:44px 1fr;gap:2px 8px;align-items:center}.rtp small{grid-column:2;color:var(--muted);font-size:12px}.rts{font:800 12px var(--f-num);color:var(--muted)}
 .slot.off{opacity:.35;cursor:default}.slot.off .av{display:grid;place-items:center;border:2px dashed rgba(255,255,255,.3);border-radius:50%;width:52px;height:52px}.bench{max-width:620px;margin:-6px auto 16px;display:grid;gap:6px}.bk{font:800 11px var(--f-num);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.brow{display:flex;gap:8px;flex-wrap:wrap}.bslot{display:grid;justify-items:center;gap:3px;border:0;background:none;cursor:pointer;color:var(--ice);width:64px}.bslot .av{width:46px;height:46px;border-radius:50%;overflow:hidden;border:2.5px solid var(--ink);display:grid;place-items:center}.bslot .av img{width:100%;height:100%;object-fit:cover}.bslot.empty .av{border:2.5px dashed rgba(255,255,255,.4);color:rgba(255,255,255,.55)}.bslot .sn{font-size:11px;font-weight:700;max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pair.m i{background:#4a3f12;color:#f2c14e}.sug{display:grid;gap:2px;padding:6px 0;border-top:1px solid var(--line)}.sug small{color:var(--muted);font-size:12.5px}.sug em{font-style:normal;font-size:12px;color:#7fd17a}.lexchip{justify-self:start;border:2px solid var(--ink);border-radius:999px;background:#22314d;color:var(--ice);font:700 13px var(--f-body);padding:3px 10px;cursor:pointer}.pk-sug{display:grid;gap:6px;margin-bottom:8px}.pcon{color:#ff8a80}
 .ssel{display:grid;gap:6px}.ssel select{font:600 14px var(--f-body);padding:8px 10px;border:2px solid var(--ink);border-radius:10px;background:#0f2140;color:var(--ice)}
+.slot.ss .av{border-color:#f2c14e!important;color:#f2c14e!important}.swap{display:block;margin-top:3px;color:#ffd27a!important}.rtswap{margin-left:6px;border:1.5px solid var(--ink);border-radius:8px;background:#2f5f2f;color:#fff;font:700 11px var(--f-num);padding:2px 8px;cursor:pointer;text-transform:uppercase}.upg{display:grid;gap:2px;padding:8px 0;border-top:1px solid var(--line)}.ukind{font-style:normal;font:800 10px var(--f-num);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:4px}
 .ghost{display:block;margin:16px auto 0;border:1.5px solid var(--line);background:none;border-radius:999px;padding:8px 16px;color:var(--muted);cursor:pointer;font:700 12.5px var(--f-num);letter-spacing:.1em;text-transform:uppercase}
 
 /* Vergleich */
@@ -668,7 +669,7 @@ details.entry{border-left:7px solid var(--red)!important}
         <div><b>Harmonie</b>Die Mitspieler-Tipps sind meine Einschätzung aus Werten, Fähigkeiten und Forum-Tipps. Offizielle Synergie-Daten gibt es nicht.</div>
       </div>
     </details>
-    <p class="appver">App-Version 04.11. 22:29</p>
+    <p class="appver">App-Version 04.11. 22:56</p>
     <details class="infowrap"><summary>Woher die Daten stammen</summary>
       <div class="info">
         <div><b>Werte</b>Speed, Checking, Shot Power und Accuracy stammen aus der Early-Access-Zeit, aus Community-Screenshots oder aus deinem eigenen Spiel (steht dann dabei). Gestreifte Balken liegen über 100.</div>
@@ -681,12 +682,13 @@ details.entry{border-left:7px solid var(--red)!important}
 
   <section class="view" id="v-team" hidden>
     <h2 class="vh">Mein Team</h2>
-    <p class="vsub">Tippe auf eine Position und wähle einen Spieler. Die App zeigt, wer zusammenpasst und wer auf der falschen Position steht. Deine Auswahl bleibt auf diesem Gerät gespeichert.</p>
+    <p class="vsub">Wähle deinen Squad: Die Grundaufstellung steht sofort, der ★-Platz ist für deinen Superstar. Danach zeigt die App, wer passt, wen du besser tauschst und welche Talente und Fähigkeiten zum Team passen. Alles bleibt auf diesem Gerät gespeichert.</p>
     <div id="rt" class="rtwrap"></div>
     <div class="rink" id="rink"></div>
     <div id="bench"></div>
+    <div id="rt2" class="rtwrap"></div>
     <div class="ana" id="ana"></div>
-    <button class="ghost" id="team-clear">Team leeren</button>
+    <button class="ghost" id="team-clear">Zur Grundaufstellung</button>
   </section>
 
   <section class="view" id="v-cmp" hidden>
@@ -766,6 +768,7 @@ const P=[{"n":"Chloe Crockett","dc":"Pass-Maschine: Mit Passtempo-Boni kommen ih
 /* Neuerungen: je Fundtag ein Block; p = betroffene Karten, low = unsichere Quelle */
 const NEWS=[
  {d:"04.11.2026",note:"Abgleich mit der Free-Agent- und Freischalt-Liste aus den Spieldaten von 1.0.",items:[
+  {id:"n1104-team2",h:"Team-Tab: Grundaufstellung, Tausch-Tipps und Upgrades",p:[],t:"Das Team ist nie mehr leer: Nach der Squad-Wahl steht sofort die Grundaufstellung mit dem festen Angus und deinen freigeschalteten Benchwarmern, der ★-Platz ist für den Superstar. „Superstar-Angebot bewerten“ setzt den besten der 3 Angebote auf seine beste Position und ordnet die Benchwarmer passend um. Bei jedem Spieler steht, ob jemand anderes besser passt (von der Bank, als Benchwarmer oder später beim General Manager), mit Tausch-Knopf. Neu ist außerdem „Upgrades pro Spieler“: passende Fähigkeit, Talente, Combos und welches Talent sich aufzuwerten lohnt. Das Wiki howthegameworks.com ist seit dem letzten Abgleich unverändert, nur 4 interne Talente und 5 interne Relikte ohne Spielfunktion fehlen bei uns.",src:[["Wiki mit Spieldaten","https://howthegameworks.com/tape-to-tape/"]]},
   {id:"n1104-kirby",h:"Ricky Kirby freigeschaltet",p:["Ricky Kirby"],t:"Laut deinem Kompendium-Video ist Ricky Kirby jetzt freigeschaltet (Bedingung: 5 Runs verlieren). Er ist als freigeschaltet markiert und hat sein aktuelles Kompendium-Porträt. Sonst ist im Kompendium noch alles wie heute Morgen, 24 Karten sind noch grau.",src:[]},
   {id:"n1104-superstar",h:"Superstar bestätigt: 3 zufällige Free Agents zur Wahl",p:[],t:"Zu Beginn eines Runs heißt es im Spiel „Superstar auswählen“: Du bekommst 3 zufällige freigeschaltete Free Agents mit ihren Grundwerten angeboten (TMP Tempo, GNK Genauigkeit, SKR Schusskraft, CHK Checking) und nimmst einen. Die Werte auf dem Auswahlbildschirm entsprechen genau den Grundwerten in der App. Neu im Team-Tab: „Superstar-Angebot bewerten“. Trag die 3 Angebote ein, die App sagt dir, wer am besten zu deinem Team und Squad passt, und setzt ihn auf Wunsch direkt ein.",src:[]},
   {id:"n1104-teambau",h:"Team selbst bauen mit Auswertung",p:[],t:"Der Team-Tab richtet sich jetzt nach dem gewählten Squad: Angus steht fest auf seinem Platz, ungenutzte Positionen sind ausgegraut, die Bank hat so viele Plätze wie der Squad Benchwarmer erlaubt. Beim Tippen auf einen Platz stehen oben die 5 Spieler, die am besten passen, mit Begründung. Jeder Spieler im Team bekommt eine Bewertung, dazu ein Fazit mit Stärken und Schwächen sowie Talente und Relikte, die zum Team passen, und was du eher meiden solltest.",src:[]},
@@ -1624,8 +1627,9 @@ function renderTeam(){
   const sqT=curSq();
   $("rink").innerHTML=SLOTS.map(([k,l,s])=>{const x=byName[team[k]];
     if(k!=="g"&&!sqT.sl.includes(k))return `<div class="slot off" style="grid-area:${k}"><span class="av">–</span><span class="sl">${s} · nicht im Squad</span></div>`;
+    if(!x&&k===ssSlot)return `<button class="slot empty ss" style="grid-area:${k}" data-slot="${k}" aria-label="Superstar wählen"><span class="av">★</span><span class="sn">Superstar</span><span class="sl">${s} · wählen</span></button>`;
     if(!x)return `<button class="slot empty" style="grid-area:${k}" data-slot="${k}" aria-label="${l} besetzen"><span class="av">+</span><span class="sn">frei</span><span class="sl">${s}${k==="g"?" · optional":""}</span></button>`;
-    const f=fitOf(x,NEED[k]);
+    const f=sqT.fx[k]===x.n?["good","fest drin"]:k===ssSlot?["good","Superstar"]:fitOf(x,NEED[k]);
     return `<button class="slot" style="grid-area:${k}" data-slot="${k}" aria-label="${l}: ${esc(x.n)} ändern"><span class="av" style="--rc:${col(x.r)}">${avatar(x)}</span><span class="sn">${esc(x.n.split(" ").slice(-1)[0])}</span><span class="fit ${f[0]}">${s} · ${f[1]}</span></button>`}).join("");
   const ps=SLOTS.filter(([k])=>team[k]).map(([k,l])=>({k,l,x:byName[team[k]]}));
   renderBench();
@@ -1649,12 +1653,12 @@ function renderTeam(){
 }
 $("bench").addEventListener("click",e=>{const b=e.target.closest("[data-slot]");if(!b)return;const k=b.dataset.slot;pickSlot=k;
   openPicker("Bankplatz",null,n=>{if(n){Object.keys(team).forEach(kk=>{if(team[kk]===n)delete team[kk]});team[k]=n}else delete team[k];saveTeam()},!!team[k])});
-$("ana").addEventListener("click",e=>{const l=e.target.closest("[data-lex]");if(l&&typeof openLex==="function")openLex(l.dataset.lex)});
+$("ana").addEventListener("click",e=>{const sw=e.target.closest("[data-swap]");if(sw){const [k,n]=sw.dataset.swap.split("|");const old=team[k];const bk=BSL.find(b=>team[b]===n);Object.keys(team).forEach(kk=>{if(team[kk]===n)delete team[kk]});team[k]=n;if(bk&&old)team[bk]=old;saveTeam();toast(`${n} ersetzt ${old}`);return}const l=e.target.closest("[data-lex]");if(l&&typeof openLex==="function")openLex(l.dataset.lex)});
 $("rink").addEventListener("click",e=>{const b=e.target.closest("[data-slot]");if(!b)return;const k=b.dataset.slot,l=SLOTS.find(s=>s[0]===k)[1];
   if(curSq().fx[k]){toast(`${team[k]} ist im ${curSq().n} Squad fest auf diesem Platz`);return}
-  pickSlot=k;openPicker(l,NEED[k],n=>{if(n){Object.keys(team).forEach(kk=>{if(team[kk]===n)delete team[kk]});team[k]=n}else delete team[k];saveTeam()},!!team[k])});
+  pickSlot=k;openPicker(k===ssSlot?"Superstar · "+l:l,NEED[k],n=>{if(n){Object.keys(team).forEach(kk=>{if(team[kk]===n)delete team[kk]});team[k]=n}else delete team[k];saveTeam()},!!team[k])});
 $("ana").addEventListener("click",()=>{});
-$("team-clear").onclick=()=>{if(!Object.keys(team).length)return;team={};saveTeam();toast("Team geleert")};
+$("team-clear").onclick=()=>{team=baseTeam();saveTeam();toast("Grundaufstellung wiederhergestellt")};
 
 /* ---------- Run-Vorlagen ---------- */
 // w = Gewichte [Speed, Checking, Shot Power, Accuracy] für Stürmer, d = für Verteidiger
@@ -1702,8 +1706,8 @@ const VAR=[["Ausgewogen",[1,1,1,1],"Bester Mix aus Werten, Position und Harmonie
 let rtSq=store.get("rtsq","vanilla"),rtOnly=store.get("rtonly",false),rtOut=null,rtSS=["","",""];
 function ssResult(){
   const c=rtSS.filter(Boolean).map(n=>byName[n]).filter(Boolean);if(!c.length)return "";
-  const sq=SQD.find(s=>s.id===rtSq),slots=sq.sl.filter(k=>!sq.fx[k]);const others=typeof skaters==="function"?skaters():[];
-  const res=c.map(x=>{let best=null;slots.forEach(k=>{const r=evalCand(x,k,others.filter(o=>o.n!==x.n));if(!best||r.sc>best.sc)best={...r,k}});return best}).sort((a,b)=>b.sc-a.sc);
+  const sq=SQD.find(s=>s.id===rtSq),slots=sq.sl.filter(k=>!sq.fx[k]);
+  const res=c.map(x=>{let best=null;slots.forEach(k=>{const r=evalCand(x,k,(typeof skaters==="function"?skaters(k):[]).filter(o=>o.n!==x.n));if(!best||r.sc>best.sc)best={...r,k}});return best}).sort((a,b)=>b.sc-a.sc);
   return res.map((r,i)=>`<div class="pair ${i===0?"g":"m"}"><i>${i+1}</i><span><b>${esc(r.x.n)}</b> · Ø ${r.x.o} · am besten als ${SLOTS.find(s=>s[0]===r.k)[1]}</span><small>${esc([...r.pro,...r.con].join(" · ")||"neutral")}</small></div>`).join("")+
     `<button class="rtuse" id="ss-take">${esc(res[0].x.n)} ins Team setzen</button>`;
 }
@@ -1736,26 +1740,30 @@ function rtGen(){
 function renderRT(){
   const sq=SQD.find(s=>s.id===rtSq);
   const fx=Object.entries(sq.fx).map(([k,n])=>`${SLOTS.find(s=>s[0]===k)[2]} ${esc(n)}`).join(" · ");
-  let h=`<div class="abox rt"><h3>Run-Vorlage</h3><div class="rtrow"><select id="rt-sq" aria-label="Squad wählen">${SQD.map(s=>`<option value="${s.id}"${s.id===rtSq?" selected":""}>${s.n} Squad</option>`).join("")}</select>
+  let h=`<div class="abox rt"><h3>Squad</h3><div class="rtrow"><select id="rt-sq" aria-label="Squad wählen">${SQD.map(s=>`<option value="${s.id}"${s.id===rtSq?" selected":""}>${s.n} Squad</option>`).join("")}</select>
   <label class="rtchk"><input type="checkbox" id="rt-only"${rtOnly?" checked":""}> nur freigeschaltete</label></div>
   <p class="rtinfo"><b>Regel:</b> ${esc(sq.r)}</p>
   <p class="rtinfo"><b>Fest drin:</b> ${fx||"keiner, alle Plätze frei"}${sq.pre?` · vorbelegt: ${Object.values(sq.pre).map(esc).join(", ")}`:""}${sq.line2?` · 2. Reihe: ${sq.line2.map(esc).join(", ")}`:""}</p>
   <p class="rtinfo"><b>Feldspieler:</b> ${sq.sl.length} · <b>Benchwarmer:</b> ${sq.bw} · <b>Freischalten:</b> ${esc(sq.frei)}</p>
   <p class="rtinfo muted">${esc(sq.tip)} Aufbau laut Community-Screenshots: Angus, ${sq.fa?"ein Superstar (aus 3 zufälligen Free Agents), ":""}${sq.pool==="angus"?"weitere Angus-Versionen":sq.pool==="fa"?"die übrigen Plätze mit Free Agents vom General Manager":"die übrigen Plätze mit Benchwarmern"}. Superstar-Auswahl bestätigt, Rest aus Screenshots abgeleitet.</p>
-  <button class="rtgo" id="rt-go">Vorlagen erzeugen</button></div>`;
+  </div>`;
+  $("rt").innerHTML=h;h="";
   if(sq.fa){const fa=P.filter(x=>x.t==="Free Agent"&&x.pos!=="Goalie").sort((a,b)=>a.n.localeCompare(b.n,"de"));
     h+=`<div class="abox rt"><h3>Superstar-Angebot bewerten</h3><p class="rtinfo muted">Trag die 3 Spieler ein, die dir das Spiel bei „Superstar auswählen“ anbietet. Die App sagt dir, wer am besten zu deinem Team und zum ${esc(sq.n)} Squad passt.</p>
     <div class="ssel">${[0,1,2].map(i=>`<select data-ss="${i}" aria-label="Angebot ${i+1}"><option value="">Angebot ${i+1}</option>${fa.map(x=>`<option${rtSS[i]===x.n?" selected":""}>${esc(x.n)}</option>`).join("")}</select>`).join("")}</div>${ssResult()}</div>`}
+  h+=`<div class="abox rt"><h3>Run-Vorlagen</h3><p class="rtinfo muted">Drei komplette Aufstellungen für den ${esc(sq.n)} Squad, jede mit einem anderen Superstar.</p><button class="rtgo" id="rt-go">Vorlagen erzeugen</button></div>`;
   if(rtOut&&rtOut.sq===rtSq)h+=rtOut.res.map((r,i)=>`<div class="abox rtv"><h3>${r.v[0]}${r.star?" · mit "+esc(r.star):""}</h3><p class="muted">${r.v[2]}</p>${SLOTS.filter(([k])=>r.team[k]).map(([k,l,s])=>{const x=byName[r.team[k]];return `<div class="rtp"><span class="rts">${s}</span><button class="mate" data-open="${esc(x.n)}">${esc(x.n)}</button><small>${sq.fx[k]?"fest drin":esc(r.why[k]||"")}${x.o!=null?` · Ø ${x.o}`:""}</small></div>`}).join("")}${r.bench.length?`<div class="rtp"><span class="rts">Bank</span><span>${r.bench.map(n=>`<button class="mate" data-open="${esc(n)}">${esc(n)}</button>`).join(" ")}</span></div>`:""}${r.later.length?`<div class="rtp"><span class="rts">Später</span><span>${r.later.map(n=>`<button class="mate" data-open="${esc(n)}">${esc(n)}</button>`).join(" ")}</span><small>Free Agents, nach denen du beim General Manager greifen solltest</small></div>`:""}<button class="rtuse" data-rt="${i}">Ins Team übernehmen</button></div>`).join("");
-  $("rt").innerHTML=h;
+  $("rt2").innerHTML=h;
 }
-$("rt").addEventListener("change",e=>{if(e.target.dataset.ss!=null){rtSS[+e.target.dataset.ss]=e.target.value;renderRT();return}if(e.target.id==="rt-sq"){rtSq=e.target.value;store.set("rtsq",rtSq);rtOut=null;renderRT();applyFx();saveTeam()}if(e.target.id==="rt-only"){rtOnly=e.target.checked;store.set("rtonly",rtOnly);if(rtOut){rtOut={sq:rtSq,res:rtGen()}}renderRT()}});
-$("rt").addEventListener("click",e=>{
+$("v-team").addEventListener("change",e=>{if(e.target.dataset.ss!=null){rtSS[+e.target.dataset.ss]=e.target.value;renderRT();return}if(e.target.id==="rt-sq"){rtSq=e.target.value;store.set("rtsq",rtSq);rtOut=null;team=baseTeam();renderRT();saveTeam();toast(`Grundaufstellung ${curSq().n} Squad`)}if(e.target.id==="rt-only"){rtOnly=e.target.checked;store.set("rtonly",rtOnly);if(rtOut){rtOut={sq:rtSq,res:rtGen()}}renderRT()}});
+$("v-team").addEventListener("click",e=>{
   if(e.target.id==="rt-go"){rtOut={sq:rtSq,res:rtGen()};renderRT();return}
   if(e.target.id==="ss-take"){const c=rtSS.filter(Boolean).map(n=>byName[n]);const sq=SQD.find(s=>s.id===rtSq);const slots=sq.sl.filter(k=>!sq.fx[k]);
     let best=null;c.forEach(x=>slots.forEach(k=>{const r=evalCand(x,k,skaters(k).filter(o=>o.n!==x.n));if(!best||r.sc>best.sc)best={...r,k}}));
-    if(best){Object.keys(team).forEach(kk=>{if(team[kk]===best.x.n)delete team[kk]});team[best.k]=best.x.n;saveTeam();renderRT();toast(`${best.x.n} spielt jetzt ${SLOTS.find(s=>s[0]===best.k)[1]}`)}return}
-  const u=e.target.closest("[data-rt]");if(u){const r=rtOut.res[+u.dataset.rt];team={};Object.entries(r.team).forEach(([k,n])=>{if(SLOTS.some(s=>s[0]===k))team[k]=n});r.bench.forEach((n,i)=>{team[BSL[i]]=n});saveTeam();toast(`Vorlage „${r.v[0]}“ übernommen`);$("rink").scrollIntoView({behavior:"smooth",block:"start"});return}
+    if(best){Object.keys(team).forEach(kk=>{if(team[kk]===best.x.n)delete team[kk]});
+      if(ssSlot&&ssSlot!==best.k&&curSq().sl.includes(ssSlot)){const moved=team[best.k];const prev=team[ssSlot];if(moved&&(!prev||byName[prev].t!=="Free Agent"))team[ssSlot]=moved}
+      team[best.k]=best.x.n;ssSlot=best.k;store.set("ss",ssSlot);rebalance();saveTeam();renderRT();toast(`${best.x.n} spielt jetzt ${SLOTS.find(s=>s[0]===best.k)[1]}`)}return}
+  const u=e.target.closest("[data-rt]");if(u){const r=rtOut.res[+u.dataset.rt];team={};Object.entries(r.team).forEach(([k,n])=>{if(SLOTS.some(s=>s[0]===k))team[k]=n});r.bench.forEach((n,i)=>{team[BSL[i]]=n});ssSlot=Object.keys(r.team).find(k=>r.team[k]===r.star)||null;store.set("ss",ssSlot);saveTeam();toast(`Vorlage „${r.v[0]}“ übernommen`);$("rink").scrollIntoView({behavior:"smooth",block:"start"});return}
   const o=e.target.closest("[data-open]");if(o)openSheet(o.dataset.open);
 });
 
@@ -1831,9 +1839,11 @@ function renderTeamX(){
   const sq=curSq(),ps=skaters();renderBench();
   if(!ps.length)return "";
   let h="";
+  const TAKEN=new Set();
   const rated=SLOTS.filter(([k])=>team[k]&&k!=="g").map(([k,l,s])=>({k,s,r:evalCand(byName[team[k]],k,skaters(k))}));
   h+=`<div class="abox"><h3>Spieler-Bewertung · ${esc(sq.n)} Squad</h3>${rated.map(({k,s,r})=>{const cls=r.con.length&&(r.con.some(c=>/reibt|eigentlich/.test(c)))?"b":r.pro.length>=2&&!r.con.length?"g":"m";
-    return `<div class="pair ${cls}"><i>${cls==="g"?"+":cls==="b"?"!":"~"}</i><span><b>${esc(r.x.n)}</b> · ${s}${sq.fx[k]?" · fest drin":""}</span><small>${esc([...r.pro,...r.con].join(" · ")||"neutral")}</small></div>`}).join("")}</div>`;
+    const sw=sq.fx[k]?null:swapFor(k,r.x,TAKEN);
+    return `<div class="pair ${sw&&cls!=="g"?"b":cls}"><i>${cls==="g"&&!sw?"+":cls==="b"||sw?"!":"~"}</i><span><b>${esc(r.x.n)}</b> · ${s}${sq.fx[k]?" · fest drin":k===ssSlot?" · Superstar":""}</span><small>${esc([...r.pro,...r.con].join(" · ")||"neutral")}</small>${sw?`<small class="swap">Besser: <b>${esc(sw.x.n)}</b> (${esc(sw.pro.slice(0,2).join(", ")||sw.x.r)}) · ${esc(sw.src)} <button class="rtswap" data-swap="${k}|${esc(sw.x.n)}">tauschen</button></small>`:""}</div>`}).join("")}</div>`+renderUpg();
   const av=tAvg(ps);
   if(av){const str=SN.filter((n,i)=>av[i]>=55&&sq.w[i]>=.3),wk=SN.filter((n,i)=>av[i]<45&&sq.w[i]>=.3);
     h+=`<div class="abox"><h3>Fazit</h3><p class="rtinfo"><b>Stärke:</b> ${str.join(", ")||"keine klare"} · <b>Schwäche:</b> ${wk.join(", ")||"keine große"}</p><p class="rtinfo muted">${esc(sq.r)} ${esc(sq.tip)}</p></div>`}
@@ -1847,10 +1857,73 @@ function renderTeamX(){
 function pickerSuggest(){
   if(!pickSlot||pickNeed==="Goalie")return "";
   const sq=curSq(),others=skaters(pickSlot);const s=$("pk-q").value.trim();if(s)return "";
-  const cands=P.filter(x=>x.pos!=="Goalie"&&!Object.values(team).includes(x.n)&&(!rtOnly||unl.has(x.n))&&(sq.pool==="angus"?(x.t==="Angus"||x.t==="Kapitän"):BSL.includes(pickSlot)?x.t==="Benchwarmer":true));
+  const cands=P.filter(x=>x.pos!=="Goalie"&&!Object.values(team).includes(x.n)&&(!rtOnly||unl.has(x.n))&&(sq.pool==="angus"?(x.t==="Angus"||x.t==="Kapitän"):BSL.includes(pickSlot)?x.t==="Benchwarmer":pickSlot===ssSlot?x.t==="Free Agent":true));
   const top=cands.map(x=>evalCand(x,BSL.includes(pickSlot)?null:pickSlot,others)).sort((a,b)=>b.sc-a.sc).slice(0,5);
   return `<div class="pk-sug"><span class="bk">Passt am besten${rtOnly?" (nur freigeschaltete)":""}</span>${top.map(r=>`<button class="prow ${TCLS[r.x.t]||""}" data-pick="${esc(r.x.n)}" style="--rc:${col(r.x.r)}"><span class="av">${avatar(r.x)}</span><span class="pinfo"><span class="pname"><span>${esc(r.x.n)}</span></span><span class="pmeta"><span>${esc(r.pro.slice(0,3).join(" · ")||r.x.r)}</span></span>${r.con.length?`<span class="pmeta"><span class="pcon">${esc(r.con.join(" · "))}</span></span>`:""}</span><span class="povr${r.x.o?"":" none"}"><b>${r.x.o??"–"}</b><small>Ø</small></span></button>`).join("")}<span class="bk">Alle Spieler</span></div>`;
 }
+
+/* ---------- Grundaufstellung, Tausch-Vorschläge, Upgrades ---------- */
+let ssSlot=store.get("ss",null);
+function baseTeam(){
+  const sq=curSq(),t={...sq.fx},used=new Set(Object.values(sq.fx));Object.entries(sq.pre||{}).forEach(([k,n])=>{t[k]=n;used.add(n)});
+  const have=x=>unl.has(x.n);
+  const poolOf=f=>{const a=P.filter(x=>f(x)&&x.pos!=="Goalie"&&!used.has(x.n));const h=a.filter(have);return h.length?h:a};
+  const fill=sq.pool==="angus"?poolOf(x=>x.t==="Angus"||x.t==="Kapitän"):sq.pool==="fa"?poolOf(x=>x.t==="Free Agent"):poolOf(x=>x.t==="Benchwarmer");
+  let free=sq.sl.filter(k=>!t[k]);ssSlot=null;
+  if(sq.fa&&free.length){const fa=poolOf(x=>x.t==="Free Agent");let best=null;
+    fa.forEach(x=>free.forEach(k=>{const s=rtScore(x,k,sq,VAR[0],[]);if(!best||s>best.s)best={s,k}}));ssSlot=best?best.k:free[0];free=free.filter(k=>k!==ssSlot)}
+  free.forEach(k=>{let best=null,bs=-1e9;fill.forEach(x=>{if(used.has(x.n))return;const s=rtScore(x,k,sq,VAR[0],Object.values(t).map(n=>byName[n]).filter(Boolean));if(s>bs){bs=s;best=x}});if(best){t[k]=best.n;used.add(best.n)}});
+  fill.filter(x=>!used.has(x.n)&&x.t==="Benchwarmer").map(x=>({x,s:rtScore(x,"c",sq,VAR[0],[])})).sort((a,b)=>b.s-a.s).slice(0,sq.bw).forEach((o,i)=>{t[BSL[i]]=o.x.n;used.add(o.x.n)});
+  t.g="Bobby Butcher";store.set("ss",ssSlot);return t;
+}
+function swapFor(k,cur,taken){
+  const sq=curSq(),others=skaters(k),inTeam=new Set(SLOTS.map(([kk])=>team[kk]).filter(Boolean)),onBench=new Set(BSL.map(b=>team[b]).filter(Boolean));
+  const isSS=k===ssSlot,poolT=sq.pool==="angus"?["Angus","Kapitän"]:isSS?["Free Agent"]:["Benchwarmer","Free Agent"];
+  const now=evalCand(cur,k,others).sc;let best=null;
+  P.filter(x=>poolT.includes(x.t)&&x.pos!=="Goalie"&&!inTeam.has(x.n)&&unl.has(x.n)&&!(taken&&taken.has(x.n))).forEach(x=>{const r=evalCand(x,k,others);if(x.t==="Free Agent"&&!isSS)r.sc-=6;if(onBench.has(x.n))r.sc+=4;if(!best||r.sc>best.sc)best=r});
+  if(best&&best.sc>now+8){taken&&taken.add(best.x.n);return {...best,gain:Math.round(best.sc-now),src:onBench.has(best.x.n)?"von der Bank":best.x.t==="Free Agent"&&!isSS?"unterwegs beim General Manager holen":best.x.t==="Benchwarmer"?"Benchwarmer":"Superstar-Kandidat"}}return null;
+}
+const UPG={
+ ab:{Speedster:["Dash","Side Dash"],Sniper:["Fake Slapper","Deke"],"Power-Schütze":["Fake Slapper","Dash"],Enforcer:["Prod","Mega Pokecheck"],Playmaker:["Mega-Sauce","Deke"],"Störer":["Kazoo","Magnet"],Allrounder:["Dash","Deke"],Spezialist:["Dash","Immunity"]},
+ pwr:["Charge Shot","Cannon Arm","Critios"],acc:["Curve Ball","X-Ray Shot","Target Practice"],spd:["Puck Rocket","Blue Line Boost","Momentum"],chk:["Bonecrusher","Chexplosion","One Strike"],
+ pass:["Flawless Feeder","Express Delivery"],def:["Spiked Armor","Defensive Deflect","Human Shield"],
+ combo:[[/Tomahawk|Mjolnir/,"Triple Twig","mehr Stockwürfe"],[/Stix|Point Sniper|Critios/,"Crit Stacks","Crit-Combo"],[/Status Extender/,"Enraged","Enraged-Combo: länger wütend"],[/Masochist/,"Fragile","mehr Verletzungen, mehr Werte"],[/Rebound Magnet/,"Bouncy McBounce","Abpraller-Combo"],[/Sonic Slap/,"Charge Shot","Schlagschuss-Combo"]]
+};
+const lexE=n=>LEX.find(e=>(e[0]==="t"||e[0]==="f")&&e[1]===n);
+function upgFor(x,k){
+  const sq=curSq(),have=[x.ab,x.ta].filter(Boolean).join(","),res=[];
+  if(/Trenchcoat/.test(have))return {note:"Keine Talente geben: Trenchcoat kostet −10 OVR pro Talent. Besser Werte-Boni (Training).",items:[]};
+  const add=(n,why,kind)=>{if(!n||have.includes(n)||res.some(r=>r.n===n))return;const e=lexE(n);if(!e)return;
+    if(sq.id==="snes"&&n==="Dash")return;if(sq.id==="referee"&&/Tomahawk|Triple Twig|Twig/.test(n))return;if(sq.id==="speedy"&&UPG.chk.includes(n))return;res.push({n,why,kind,d:e[2]})};
+  UPG.combo.forEach(([re,n,why])=>{if(re.test(have))add(n,why,"Combo")});
+  if(!x.ab){const ab=(UPG.ab[x.r]||UPG.ab.Allrounder);add(sq.id==="snes"&&ab[0]==="Dash"?ab[1]:ab[0],"Fähigkeit für einen "+x.r,"Fähigkeit")}
+  const s=x.s||[0,0,0,0],isD=k==="lv"||k==="rv",w=isD?sq.d:sq.w;
+  const order=[0,1,2,3].filter(i=>w[i]>=.3).sort((a,b)=>s[b]*w[b]-s[a]*w[a]);
+  const lists=[UPG.spd,UPG.chk,UPG.pwr,UPG.acc],nm=["Tempo","Checks","Schuss","Genauigkeit"];
+  if(order[0]!=null)add(lists[order[0]].find(n=>!have.includes(n)),"verstärkt seine Stärke ("+nm[order[0]]+")","Talent");
+  const weak=[0,1,2,3].filter(i=>w[i]>=.5).sort((a,b)=>s[a]-s[b])[0];
+  if(weak!=null&&s[weak]<40)add(lists[weak].find(n=>!have.includes(n)&&!res.some(r=>r.n===n)),"gleicht Schwäche aus ("+nm[weak]+" "+s[weak]+")","Talent");
+  if(isD&&sq.id!=="defense")add(UPG.def.find(n=>!have.includes(n)),"Verteidiger-Talent","Talent");
+  if(isD&&sq.id==="defense")add("Point Sniper","Defense Squad: Tore von hinten","Talent");
+  if(x.r==="Playmaker"||sq.id==="trio")add(UPG.pass.find(n=>!have.includes(n)),"Vorlagen für die Mitspieler","Talent");
+  const up=(x.ta||"").split(",").map(t=>t.trim()).filter(Boolean).map(lexE).filter(e=>e&&/S2/.test(e[2])&&e[3]!=="meiden")[0];
+  if(up)res.push({n:up[1],why:"vorhandenes Talent aufwerten (Stufe 2)",kind:"Aufwerten",d:up[2]});
+  const note=x.n==="Boring Dude"?"Quest: 8 Talente gleichzeitig. Jedes Talent hilft ihm.":"";
+  return {note,items:res.slice(0,4)};
+}
+function renderUpg(){
+  const rows=SLOTS.filter(([k])=>team[k]&&k!=="g").map(([k,l,s])=>{const x=byName[team[k]],u=upgFor(x,k);
+    return `<div class="upg"><span><b>${esc(x.n)}</b> <span class="muted">· ${s}</span></span>${u.note?`<small class="muted">${esc(u.note)}</small>`:""}${u.items.map(i=>`<div class="sug"><span><em class="ukind">${i.kind}</em> <button class="lexchip" data-lex="${esc(i.n)}">${esc(i.n)}</button></span><small>${esc(i.d)}</small><em>${esc(i.why)}</em></div>`).join("")}</div>`}).join("");
+  return rows?`<div class="abox"><h3>Upgrades pro Spieler</h3><p class="muted">Welche Fähigkeit und welche Talente du jedem Spieler geben solltest, wenn du die Wahl hast, damit Spieler und Team zusammenpassen.</p>${rows}</div>`:"";
+}
+function rebalance(){
+  const sq=curSq(),ks=sq.sl.filter(k=>!sq.fx[k]&&k!==ssSlot&&team[k]);if(ks.length<2||ks.length>5)return;
+  const ns=ks.map(k=>team[k]);let best=null;
+  const perm=a=>a.length<2?[a]:a.flatMap((x,i)=>perm([...a.slice(0,i),...a.slice(i+1)]).map(p=>[x,...p]));
+  perm(ns).forEach(p=>{const tmp={...team};ks.forEach((k,i)=>tmp[k]=p[i]);const sc=ks.reduce((a,k,i)=>{const x=byName[p[i]];const f=fitOf(x,NEED[k]);return a+{good:12,ok:5,unk:0,bad:-8}[f[0]]},0);if(!best||sc>best.sc)best={sc,p}});
+  ks.forEach((k,i)=>team[k]=best.p[i]);
+}
+if(!skaters().length){team=baseTeam();store.set("team",team)}
 
 /* ---------- Vergleich ---------- */
 function addToCmp(n){
