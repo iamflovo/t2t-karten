@@ -331,6 +331,7 @@ details.infowrap{border-top:1px solid var(--line);padding-top:0;font-size:inheri
 .pair small{color:var(--muted);font-size:12.5px}
 .muted{color:var(--muted);font-size:13px;margin:0}
 .rtwrap{display:grid;gap:10px;margin-bottom:14px}.rtrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.rtrow select{font:600 14px var(--f-body);padding:8px 10px;border:2px solid var(--ink);border-radius:10px;background:#0f2140;color:var(--ice);flex:1;min-width:0}.rtchk{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}.rtinfo{margin:0;font-size:13.5px;line-height:1.45}.rtinfo b{color:var(--ice)}.rtgo,.rtuse{justify-self:start;border:2px solid var(--ink);border-radius:10px;background:var(--blue,#3b82f6);color:#fff;font:700 13px var(--f-num);letter-spacing:.06em;text-transform:uppercase;padding:9px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ink)}.rtv .muted{margin:0;font-size:13px}.rtp{display:grid;grid-template-columns:44px 1fr;gap:2px 8px;align-items:center}.rtp small{grid-column:2;color:var(--muted);font-size:12px}.rts{font:800 12px var(--f-num);color:var(--muted)}
+.slot.off{opacity:.35;cursor:default}.slot.off .av{display:grid;place-items:center;border:2px dashed rgba(255,255,255,.3);border-radius:50%;width:52px;height:52px}.bench{max-width:620px;margin:-6px auto 16px;display:grid;gap:6px}.bk{font:800 11px var(--f-num);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.brow{display:flex;gap:8px;flex-wrap:wrap}.bslot{display:grid;justify-items:center;gap:3px;border:0;background:none;cursor:pointer;color:var(--ice);width:64px}.bslot .av{width:46px;height:46px;border-radius:50%;overflow:hidden;border:2.5px solid var(--ink);display:grid;place-items:center}.bslot .av img{width:100%;height:100%;object-fit:cover}.bslot.empty .av{border:2.5px dashed rgba(255,255,255,.4);color:rgba(255,255,255,.55)}.bslot .sn{font-size:11px;font-weight:700;max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pair.m i{background:#4a3f12;color:#f2c14e}.sug{display:grid;gap:2px;padding:6px 0;border-top:1px solid var(--line)}.sug small{color:var(--muted);font-size:12.5px}.sug em{font-style:normal;font-size:12px;color:#7fd17a}.lexchip{justify-self:start;border:2px solid var(--ink);border-radius:999px;background:#22314d;color:var(--ice);font:700 13px var(--f-body);padding:3px 10px;cursor:pointer}.pk-sug{display:grid;gap:6px;margin-bottom:8px}.pcon{color:#ff8a80}
 .ghost{display:block;margin:16px auto 0;border:1.5px solid var(--line);background:none;border-radius:999px;padding:8px 16px;color:var(--muted);cursor:pointer;font:700 12.5px var(--f-num);letter-spacing:.1em;text-transform:uppercase}
 
 /* Vergleich */
@@ -665,7 +666,7 @@ details.entry{border-left:7px solid var(--red)!important}
         <div><b>Harmonie</b>Die Mitspieler-Tipps sind meine Einschätzung aus Werten, Fähigkeiten und Forum-Tipps. Offizielle Synergie-Daten gibt es nicht.</div>
       </div>
     </details>
-    <p class="appver">App-Version 04.11. 15:22</p>
+    <p class="appver">App-Version 04.11. 18:22</p>
     <details class="infowrap"><summary>Woher die Daten stammen</summary>
       <div class="info">
         <div><b>Werte</b>Speed, Checking, Shot Power und Accuracy stammen aus der Early-Access-Zeit, aus Community-Screenshots oder aus deinem eigenen Spiel (steht dann dabei). Gestreifte Balken liegen über 100.</div>
@@ -681,6 +682,7 @@ details.entry{border-left:7px solid var(--red)!important}
     <p class="vsub">Tippe auf eine Position und wähle einen Spieler. Die App zeigt, wer zusammenpasst und wer auf der falschen Position steht. Deine Auswahl bleibt auf diesem Gerät gespeichert.</p>
     <div id="rt" class="rtwrap"></div>
     <div class="rink" id="rink"></div>
+    <div id="bench"></div>
     <div class="ana" id="ana"></div>
     <button class="ghost" id="team-clear">Team leeren</button>
   </section>
@@ -762,6 +764,7 @@ const P=[{"n":"Chloe Crockett","dc":"Pass-Maschine: Mit Passtempo-Boni kommen ih
 /* Neuerungen: je Fundtag ein Block; p = betroffene Karten, low = unsichere Quelle */
 const NEWS=[
  {d:"04.11.2026",note:"Abgleich mit der Free-Agent- und Freischalt-Liste aus den Spieldaten von 1.0.",items:[
+  {id:"n1104-teambau",h:"Team selbst bauen mit Auswertung",p:[],t:"Der Team-Tab richtet sich jetzt nach dem gewählten Squad: Angus steht fest auf seinem Platz, ungenutzte Positionen sind ausgegraut, die Bank hat so viele Plätze wie der Squad Benchwarmer erlaubt. Beim Tippen auf einen Platz stehen oben die 5 Spieler, die am besten passen, mit Begründung. Jeder Spieler im Team bekommt eine Bewertung, dazu ein Fazit mit Stärken und Schwächen sowie Talente und Relikte, die zum Team passen, und was du eher meiden solltest.",src:[]},
   {id:"n1104-vorlagen",h:"Neu: Run-Vorlagen im Team-Tab",p:[],t:"Squad wählen und Vorlagen erzeugen: Die App zeigt, wer fest im Team ist, welche Regeln gelten und wie viele Benchwarmer erlaubt sind. Sie stellt dann drei Aufstellungen zusammen, jeweils mit einem anderen Startspieler, passenden Benchwarmern, Bank und Free Agents, nach denen du später greifen solltest. Auf Wunsch nur mit freigeschalteten Spielern, mit einem Klick ins Team übernehmen.",src:[]},
   {id:"n1104-runs",h:"Werte aus Community-Runs, Superstar-Werte korrigiert",p:["Joan Ozark","Willie Brie","Rory McShaggy","Cam Amber","Calvin Dord","Chloe Crockett","Kelly Jelly","Fortune Banks","Angus McDefense","Mark Bench","Boring Dude","Bungus McBooty"],t:"Ausgewertet wurden Spiel-Screenshots aus dem Discord (Aufstellungen und Run-Auswertungen). 29 Karten zeigen jetzt, welche Werte Spieler in echten Runs erreicht haben, z. B. Angus McDefense mit OVR 244. Die Aufstellungen zeigen außerdem: Rory und die anderen „Superstars“ spielen in 1.0 mit ihren Free-Agent-Werten. Die bisherigen Superstar-Werte gehören zu den Gegner-Teams und stehen jetzt als Gegner-Version auf der Karte. Wie das Spiel den Startspieler nennt und wer dafür in Frage kommt, wird noch geprüft. Bis dahin ist der Filter „Superstars“ ausgeblendet.",src:[["Tape-to-Tape-Discord","https://discord.com/channels/799745167476260905/799745168022437910"]]},
   {id:"n1104-werte",h:"Alte Early-Access-Werte ersetzt",p:["Kelly Jelly","Sergei Lancelov","Gedeon LaMoustache","Clementine McShaggy","Buck Wurst","Ryan Pepito","Joan Ozark","Willie Brie","Rory McShaggy","Cam Amber","Calvin Dord","Chloe Crockett"],t:"12 Karten zeigten noch Werte aus dem Early Access. Jetzt stehen dort die Werte aus 1.0, z. B. Kelly Jelly Speed 144 statt 81. Kelly, Sergei, Gedeon, Clementine, Buck, Ryan, Ozzie und Fortune Banks gibt es in 1.0 nur als Free Agent.",src:[["Wiki mit Spieldaten","https://howthegameworks.com/tape-to-tape/mechanics/npcs-and-events.html"]]},
@@ -1587,12 +1590,13 @@ function renderPicker(){
   const s=$("pk-q").value.trim().toLowerCase();
   const rank=x=>{const f=fitOf(x,pickNeed);return f?{good:0,ok:1,unk:2,bad:3}[f[0]]:0};
   const list=P.filter(x=>!s||(x.n+" "+x.r+" "+x.pos).toLowerCase().includes(s)).sort((a,b)=>rank(a)-rank(b)||(!!b.pic)-(!!a.pic)||(b.o||0)-(a.o||0)||a.n.localeCompare(b.n,"de"));
-  $("pk-list").innerHTML=($("picker").dataset.none?`<button class="pk-none" data-pick="">Position leeren</button>`:"")+list.map(x=>{const f=fitOf(x,pickNeed);
+  const others=pickSlot?skaters(pickSlot):[];
+  $("pk-list").innerHTML=pickerSuggest()+($("picker").dataset.none?`<button class="pk-none" data-pick="">Position leeren</button>`:"")+list.map(x=>{const f=fitOf(x,pickNeed);
     return `<button class="prow ${TCLS[x.t]||""}" data-pick="${esc(x.n)}" style="--rc:${col(x.r)}"><span class="av">${avatar(x)}</span>
     <span class="pinfo"><span class="pname"><span>${esc(x.n)}</span></span><span class="pmeta"><span class="prole">${x.r}</span><span>${esc(x.pos)}${x.pa?" / "+esc(x.pa):""}</span></span></span>
-    ${f?`<span class="fit ${f[0]}">${f[1]}</span>`:`<span class="povr${x.o?"":" none"}"><b>${x.o||"–"}</b><small>OVR</small></span>`}</button>`}).join("");
+    ${others.some(c=>x.no.includes(c.n)||c.no.includes(x.n))?`<span class="fit bad">reibt sich</span>`:f?`<span class="fit ${f[0]}">${f[1]}</span>`:`<span class="povr${x.o?"":" none"}"><b>${x.o||"–"}</b><small>OVR</small></span>`}</button>`}).join("");
 }
-function closePicker(){$("picker").hidden=true;if($("sheet").hidden){$("backdrop").hidden=true;document.body.classList.remove("lock")}}
+function closePicker(){pickSlot=null;$("picker").hidden=true;if($("sheet").hidden){$("backdrop").hidden=true;document.body.classList.remove("lock")}}
 $("pk-q").addEventListener("input",renderPicker);$("pk-close").onclick=closePicker;
 $("pk-list").addEventListener("click",e=>{const b=e.target.closest("[data-pick]");if(!b)return;const cb=pickCb;closePicker();cb(b.dataset.pick||null)});
 $("backdrop").addEventListener("click",()=>{if(!$("picker").hidden)closePicker()});
@@ -1611,30 +1615,38 @@ function rel(a,b){ // a über b
   if(a.y.includes(b.n))return["g",a.yw];if(a.no.includes(b.n))return["b",a.nw];return null;
 }
 function renderTeam(){
+  const sqT=curSq();
   $("rink").innerHTML=SLOTS.map(([k,l,s])=>{const x=byName[team[k]];
+    if(k!=="g"&&!sqT.sl.includes(k))return `<div class="slot off" style="grid-area:${k}"><span class="av">–</span><span class="sl">${s} · nicht im Squad</span></div>`;
     if(!x)return `<button class="slot empty" style="grid-area:${k}" data-slot="${k}" aria-label="${l} besetzen"><span class="av">+</span><span class="sn">frei</span><span class="sl">${s}${k==="g"?" · optional":""}</span></button>`;
     const f=fitOf(x,NEED[k]);
     return `<button class="slot" style="grid-area:${k}" data-slot="${k}" aria-label="${l}: ${esc(x.n)} ändern"><span class="av" style="--rc:${col(x.r)}">${avatar(x)}</span><span class="sn">${esc(x.n.split(" ").slice(-1)[0])}</span><span class="fit ${f[0]}">${s} · ${f[1]}</span></button>`}).join("");
   const ps=SLOTS.filter(([k])=>team[k]).map(([k,l])=>({k,l,x:byName[team[k]]}));
+  renderBench();
   if(!ps.length){$("ana").innerHTML=`<div class="abox"><h3>So geht's</h3><p class="muted">Tippe auf ein freies Feld oder öffne eine Spielerkarte und tippe auf „Ins Team“. Tipp: Starte mit Angus und deinen Squad-Stars.</p></div>`;return}
   const pairs=[];for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){const a=ps[i].x,b=ps[j].x;
     const r1=rel(a,b),r2=rel(b,a);[r1,r2].forEach((r,ix)=>{if(r)pairs.push({t:r[0],a:ix?b:a,b:ix?a:b,why:r[1]})});}
   const good=pairs.filter(p=>p.t==="g"),bad=pairs.filter(p=>p.t==="b");
-  const posIssues=ps.map(p=>({...p,f:fitOf(p.x,NEED[p.k])})).filter(p=>p.f[0]!=="good");
+  const posIssues=ps.map(p=>({...p,f:fitOf(p.x,NEED[p.k])})).filter(p=>p.f[0]!=="good"&&curSq().fx[p.k]!==p.x.n);
   const withS=ps.filter(p=>p.x.s);
   const avg=withS.length?SL.map((_,i)=>Math.round(withS.reduce((a,p)=>a+p.x.s[i],0)/withS.length)):null;
   const free=SLOTS.filter(([k])=>!team[k]&&k!=="g");
   const pl=p=>`<b>${esc(p.a.n)}</b> + <b>${esc(p.b.n)}</b>`;
-  let h=`<div class="abox"><h3>Teamchemie</h3><div class="score"><div class="g"><b>${good.length}</b><span>passt</span></div><div class="b"><b>${bad.length}</b><span>reibt sich</span></div><div><b>${ps.filter(p=>fitOf(p.x,NEED[p.k])[0]==="good").length}/${ps.length}</b><span>richtige Position</span></div></div></div>`;
+  let h=`<div class="abox"><h3>Teamchemie</h3><div class="score"><div class="g"><b>${good.length}</b><span>passt</span></div><div class="b"><b>${bad.length}</b><span>reibt sich</span></div><div><b>${ps.filter(p=>fitOf(p.x,NEED[p.k])[0]==="good"||curSq().fx[p.k]===p.x.n).length}/${ps.length}</b><span>richtige Position</span></div></div></div>`;
   if(good.length||bad.length)h+=`<div class="abox"><h3>Harmonie</h3>${good.map(p=>`<div class="pair g"><i>+</i><span>${pl(p)}</span><small>${esc(p.why||"")}</small></div>`).join("")}${bad.map(p=>`<div class="pair b"><i>–</i><span>${pl(p)}</span><small>${esc(p.why||"")}</small></div>`).join("")}</div>`;
   else if(ps.length>1)h+=`<div class="abox"><h3>Harmonie</h3><p class="muted">Zu diesen Spielern sind noch keine Verbindungen bekannt.</p></div>`;
   if(posIssues.length)h+=`<div class="abox"><h3>Positionen</h3>${posIssues.map(p=>`<div class="pair ${p.f[0]==="ok"?"g":"b"}"><i>${p.f[0]==="ok"?"~":"!"}</i><span><b>${esc(p.x.n)}</b> auf ${p.l}</span><small>${p.f[0]==="ok"?"Ausweichposition, geht in Ordnung":p.f[0]==="unk"?"Position noch unklar":"Hauptposition ist "+esc(p.x.pos)}</small></div>`).join("")}</div>`;
   if(avg)h+=`<div class="abox"><h3>Teamwerte (Schnitt aus ${withS.length} von ${ps.length} Spielern mit Werten)</h3><div class="stats" style="--rc:var(--blue)">${avg.map((v,i)=>`<div class="stat"><span class="l">${SL[i]}</span><span class="track"><i style="width:${Math.min(v,100)}%"></i></span><span class="val">${v}</span></div>`).join("")}</div></div>`;
-  if(free.length)h+=`<div class="abox"><h3>Noch frei</h3><p class="muted">${free.map(f=>f[1]).join(", ")}</p></div>`;
-  $("ana").innerHTML=h;
+  const free2=free.filter(([k])=>curSq().sl.includes(k));
+  if(free2.length)h+=`<div class="abox"><h3>Noch frei</h3><p class="muted">${free2.map(f=>f[1]).join(", ")}. Tippe auf den Platz: oben stehen die Spieler, die am besten passen.</p></div>`;
+  $("ana").innerHTML=h+renderTeamX();
 }
+$("bench").addEventListener("click",e=>{const b=e.target.closest("[data-slot]");if(!b)return;const k=b.dataset.slot;pickSlot=k;
+  openPicker("Bankplatz",null,n=>{if(n){Object.keys(team).forEach(kk=>{if(team[kk]===n)delete team[kk]});team[k]=n}else delete team[k];saveTeam()},!!team[k])});
+$("ana").addEventListener("click",e=>{const l=e.target.closest("[data-lex]");if(l&&typeof openLex==="function")openLex(l.dataset.lex)});
 $("rink").addEventListener("click",e=>{const b=e.target.closest("[data-slot]");if(!b)return;const k=b.dataset.slot,l=SLOTS.find(s=>s[0]===k)[1];
-  openPicker(l,NEED[k],n=>{if(n){Object.keys(team).forEach(kk=>{if(team[kk]===n)delete team[kk]});team[k]=n}else delete team[k];saveTeam()},!!team[k])});
+  if(curSq().fx[k]){toast(`${team[k]} ist im ${curSq().n} Squad fest auf diesem Platz`);return}
+  pickSlot=k;openPicker(l,NEED[k],n=>{if(n){Object.keys(team).forEach(kk=>{if(team[kk]===n)delete team[kk]});team[k]=n}else delete team[k];saveTeam()},!!team[k])});
 $("ana").addEventListener("click",()=>{});
 $("team-clear").onclick=()=>{if(!Object.keys(team).length)return;team={};saveTeam();toast("Team geleert")};
 
@@ -1721,12 +1733,105 @@ function renderRT(){
   if(rtOut&&rtOut.sq===rtSq)h+=rtOut.res.map((r,i)=>`<div class="abox rtv"><h3>${r.v[0]}${r.star?" · mit "+esc(r.star):""}</h3><p class="muted">${r.v[2]}</p>${SLOTS.filter(([k])=>r.team[k]).map(([k,l,s])=>{const x=byName[r.team[k]];return `<div class="rtp"><span class="rts">${s}</span><button class="mate" data-open="${esc(x.n)}">${esc(x.n)}</button><small>${sq.fx[k]?"fest drin":esc(r.why[k]||"")}${x.o!=null?` · Ø ${x.o}`:""}</small></div>`}).join("")}${r.bench.length?`<div class="rtp"><span class="rts">Bank</span><span>${r.bench.map(n=>`<button class="mate" data-open="${esc(n)}">${esc(n)}</button>`).join(" ")}</span></div>`:""}${r.later.length?`<div class="rtp"><span class="rts">Später</span><span>${r.later.map(n=>`<button class="mate" data-open="${esc(n)}">${esc(n)}</button>`).join(" ")}</span><small>Free Agents, nach denen du beim General Manager greifen solltest</small></div>`:""}<button class="rtuse" data-rt="${i}">Ins Team übernehmen</button></div>`).join("");
   $("rt").innerHTML=h;
 }
-$("rt").addEventListener("change",e=>{if(e.target.id==="rt-sq"){rtSq=e.target.value;store.set("rtsq",rtSq);rtOut=null;renderRT()}if(e.target.id==="rt-only"){rtOnly=e.target.checked;store.set("rtonly",rtOnly);if(rtOut){rtOut={sq:rtSq,res:rtGen()}}renderRT()}});
+$("rt").addEventListener("change",e=>{if(e.target.id==="rt-sq"){rtSq=e.target.value;store.set("rtsq",rtSq);rtOut=null;renderRT();applyFx();saveTeam()}if(e.target.id==="rt-only"){rtOnly=e.target.checked;store.set("rtonly",rtOnly);if(rtOut){rtOut={sq:rtSq,res:rtGen()}}renderRT()}});
 $("rt").addEventListener("click",e=>{
   if(e.target.id==="rt-go"){rtOut={sq:rtSq,res:rtGen()};renderRT();return}
-  const u=e.target.closest("[data-rt]");if(u){const r=rtOut.res[+u.dataset.rt];team={};Object.entries(r.team).forEach(([k,n])=>{if(SLOTS.some(s=>s[0]===k))team[k]=n});saveTeam();toast(`Vorlage „${r.v[0]}“ übernommen`);$("rink").scrollIntoView({behavior:"smooth",block:"start"});return}
+  const u=e.target.closest("[data-rt]");if(u){const r=rtOut.res[+u.dataset.rt];team={};Object.entries(r.team).forEach(([k,n])=>{if(SLOTS.some(s=>s[0]===k))team[k]=n});r.bench.forEach((n,i)=>{team[BSL[i]]=n});saveTeam();toast(`Vorlage „${r.v[0]}“ übernommen`);$("rink").scrollIntoView({behavior:"smooth",block:"start"});return}
   const o=e.target.closest("[data-open]");if(o)openSheet(o.dataset.open);
 });
+
+/* ---------- Team-Analyse (Squad, Vorschläge, Talente) ---------- */
+const SN=["Speed","Checking","Shot Power","Genauigkeit"];
+const BSL=["b0","b1","b2","b3","b4"];
+let pickSlot=null;
+const curSq=()=>SQD.find(s=>s.id===rtSq)||SQD[0];
+const skaters=ex=>SLOTS.filter(([k])=>team[k]&&k!=="g"&&k!==ex).map(([k])=>byName[team[k]]).filter(Boolean);
+const tAvg=ps=>{const w=ps.filter(p=>p.s&&p.o);return w.length?SN.map((_,i)=>Math.round(w.reduce((a,p)=>a+p.s[i],0)/w.length)):null};
+function evalCand(x,k,others){
+  const sq=curSq(),slot=k&&SLOTS.some(s=>s[0]===k)?k:"c",pro=[],con=[];
+  const sc=rtScore(x,slot,sq,VAR[0],others);
+  if(k&&NEED[k]&&curSq().fx[k]!==x.n){const f=fitOf(x,NEED[k]);if(f[0]==="good")pro.push("Hauptposition");else if(f[0]==="ok")pro.push("Ausweichposition");else if(f[0]==="bad")con.push("eigentlich "+x.pos)}
+  others.forEach(c=>{if(x.y.includes(c.n)||c.y.includes(x.n))pro.push("passt zu "+c.n.split(" ").slice(-1)[0]);if(x.no.includes(c.n)||c.no.includes(x.n))con.push("reibt sich mit "+c.n.split(" ").slice(-1)[0])});
+  const av=tAvg(others),w=(k==="lv"||k==="rv")?sq.d:sq.w;
+  if(av&&x.s)SN.forEach((n,i)=>{if(w[i]>=.5&&av[i]<45&&x.s[i]>=60)pro.push("bringt fehlende "+n)});
+  if(x.s&&!av){const i=x.s.indexOf(Math.max(...x.s));pro.push("stark in "+SN[i]+" ("+x.s[i]+")")}
+  const tl=[x.ab,x.ta].filter(Boolean).join(",");(sq.tal||[]).forEach(t=>{if(tl.includes(t))pro.push(t+" passt zum Squad")});
+  if(tl.includes("Trenchcoat"))con.push("Trenchcoat: keine Talente geben");
+  if(x.o===0&&sq.id!=="bum")con.push("startet mit 0 OVR");
+  if(sq.id==="speedy"&&x.s&&x.s[1]>=70)con.push("Checking zählt im Speedy Squad nicht");
+  return {x,sc,pro,con};
+}
+function applyFx(){
+  const sq=curSq();
+  if(sq.id!=="allangus")Object.keys(team).forEach(k=>{const x=byName[team[k]];if(x&&(x.t==="Angus"||x.t==="Kapitän")&&!Object.values(sq.fx).includes(x.n))delete team[k]});
+  Object.entries(sq.fx).forEach(([k,n])=>{Object.keys(team).forEach(kk=>{if(team[kk]===n)delete team[kk]});team[k]=n});
+  SLOTS.forEach(([k])=>{if(k!=="g"&&!sq.sl.includes(k))delete team[k]});
+  BSL.slice(sq.bw).forEach(k=>delete team[k]);
+  if(!team.g)team.g="Bobby Butcher";
+}
+// Talente & Relikte
+const LXBAD=/Fluch|Canada|Steuer|Gegner|Boss|Gimmick|Quest|unbenutzt|Test|Officials|Tycoons|Golfers|Cultists|Greasy Lettuce|Meatballs|Top Cheese|Calaveras|Hockey FC|Crusaders|Mountaineers|Shooting Stars|Princess|Prisoners|Verstecktes|Start-Relikt|Squad-Relikt|Squad\)/i;
+function suggestItems(ps,sq){
+  const av=tAvg(ps);if(!av)return null;
+  const tl=ps.map(p=>[p.ab,p.ta].filter(Boolean).join(",")).join(",");
+  const needs=[];const low=i=>av[i]<45&&sq.w[i]>=.3;
+  if(low(0))needs.push({tag:"Tempo",cat:["Tempo"],kw:/Speed|Tempo/i,who:0});
+  if(low(1))needs.push({tag:"Checks",cat:["Checks"],kw:/Checking|Knockout|ausknock/i,who:1});
+  if(low(2))needs.push({tag:"Schusskraft",cat:["Torjagd"],kw:/Shot Power|Schuss/i,who:2});
+  if(low(3))needs.push({tag:"Genauigkeit",cat:["Torjagd","Werte"],kw:/Accuracy|Genauigkeit/i,who:3});
+  if(/Stix|Point Sniper|Crit|Glass Cannon/.test(tl))needs.push({tag:"Crit-Combo",cat:[],kw:/Crit/i});
+  if(/Tomahawk/.test(tl))needs.push({tag:"Stockwurf-Combo",cat:[],kw:/Stock|Triple Twig|Tomahawk/i});
+  if(/Status Extender/.test(tl)||ps.some(p=>p.n==="Sally Poppins"))needs.push({tag:"Enraged-Combo",cat:[],kw:/enraged|Wut/i});
+  if(ps.some(p=>p.n==="Stu Stumple"))needs.push({tag:"Verletzungs-Combo",cat:["Verletzung"],kw:/Verletzung/i});
+  if(ps.filter(p=>p.t==="Benchwarmer").length>=2||sq.bw>=3)needs.push({tag:"Bank",cat:["Bank"],kw:/Bank/i});
+  if(sq.id==="slapshot")needs.push({tag:"Slapshot Squad",cat:[],kw:/Schlagschuss|Slapshot/i});
+  if(sq.id==="trio")needs.push({tag:"Trio Squad",cat:["Pässe"],kw:/Vorlage|Pass/i});
+  if(sq.id==="defense")needs.push({tag:"Defense Squad",cat:[],kw:/Verteidiger|LD|RD|blaue Linie|blue line/i});
+  if(sq.id==="violence")needs.push({tag:"Violence Squad",cat:["Checks"],kw:/Knockout|ausknock/i});
+  if(!needs.length)needs.push({tag:"Werte",cat:["Werte","Wachstum"],kw:/OVR/i});
+  const pick=kind=>{const res=[];LEX.filter(e=>e[0]===kind&&e[3]!=="meiden"&&!LXBAD.test(e[2])&&!P.some(p=>e[2].includes(p.n)||e[2].includes(p.n.split(" ")[0]+"s Talent"))).forEach(e=>{
+      const hit=needs.filter(n=>(kind==="t"&&n.cat.includes(e[4]))||n.kw.test(e[1]+" "+e[2]));
+      if(!hit.length)return;if(sq.id==="speedy"&&/Checking/i.test(e[2])&&!/Shot|Speed|Genau|Accuracy/i.test(e[2]))return;if(!sq.sl.includes("lv")&&/\bLD\b|\bRD\b|Verteidiger/.test(e[2]))return;
+      res.push({e,hit,sc:hit.length*2+(e[3]==="gut"?2:0)+(e[3]==="situativ"?-1:0)})});
+    return res.sort((a,b)=>b.sc-a.sc||a.e[1].localeCompare(b.e[1])).slice(0,kind==="t"?6:4)};
+  const forWho=n=>{if(n.who==null)return"";const p=ps.filter(q=>q.s).sort((a,b)=>a.s[n.who]-b.s[n.who])[0];return p?p.n:""};
+  const avoid=[];
+  if(ps.some(p=>/Trenchcoat/.test(p.ta||"")))avoid.push("Keine zusätzlichen Talente für Brad Bird: Trenchcoat kostet −10 OVR pro Talent.");
+  if(sq.id==="speedy")avoid.push("Checking-Talente bringen im Speedy Squad nichts (−200 Checking).");
+  if(sq.id==="referee")avoid.push("Stockwurf-Items (Tomahawk, Triple Twig, Twig Tax) sind im Referee Squad gesperrt.");
+  if(sq.id==="snes")avoid.push("Dash ist im 16-Bit Squad gesperrt.");
+  LEX.filter(e=>e[0]==="t"&&e[3]==="meiden"&&needs.some(n=>n.cat.includes(e[4]))).slice(0,2).forEach(e=>avoid.push(e[1]+": "+e[2]));
+  return {needs,tal:pick("t"),rel:pick("r"),avoid,forWho};
+}
+function renderBench(){
+  const sq=curSq();
+  $("bench").innerHTML=sq.bw?`<div class="bench"><span class="bk">Bank · ${sq.bw} Benchwarmer</span><div class="brow">${BSL.slice(0,sq.bw).map(k=>{const x=byName[team[k]];
+    return x?`<button class="bslot" data-slot="${k}"><span class="av" style="--rc:${col(x.r)}">${avatar(x)}</span><span class="sn">${esc(x.n.split(" ").slice(-1)[0])}</span></button>`:`<button class="bslot empty" data-slot="${k}"><span class="av">+</span><span class="sn">frei</span></button>`}).join("")}</div></div>`:"";
+}
+function renderTeamX(){
+  const sq=curSq(),ps=skaters();renderBench();
+  if(!ps.length)return "";
+  let h="";
+  const rated=SLOTS.filter(([k])=>team[k]&&k!=="g").map(([k,l,s])=>({k,s,r:evalCand(byName[team[k]],k,skaters(k))}));
+  h+=`<div class="abox"><h3>Spieler-Bewertung · ${esc(sq.n)} Squad</h3>${rated.map(({k,s,r})=>{const cls=r.con.length&&(r.con.some(c=>/reibt|eigentlich/.test(c)))?"b":r.pro.length>=2&&!r.con.length?"g":"m";
+    return `<div class="pair ${cls}"><i>${cls==="g"?"+":cls==="b"?"!":"~"}</i><span><b>${esc(r.x.n)}</b> · ${s}${sq.fx[k]?" · fest drin":""}</span><small>${esc([...r.pro,...r.con].join(" · ")||"neutral")}</small></div>`}).join("")}</div>`;
+  const av=tAvg(ps);
+  if(av){const str=SN.filter((n,i)=>av[i]>=55&&sq.w[i]>=.3),wk=SN.filter((n,i)=>av[i]<45&&sq.w[i]>=.3);
+    h+=`<div class="abox"><h3>Fazit</h3><p class="rtinfo"><b>Stärke:</b> ${str.join(", ")||"keine klare"} · <b>Schwäche:</b> ${wk.join(", ")||"keine große"}</p><p class="rtinfo muted">${esc(sq.r)} ${esc(sq.tip)}</p></div>`}
+  const it=suggestItems(ps,sq);
+  if(it){const row=o=>`<div class="sug"><button class="lexchip" data-lex="${esc(o.e[1])}">${esc(o.e[1])}</button><small>${esc(o.e[2])}</small><em>${esc(o.hit.map(n=>n.tag).join(", "))}${o.hit[0].who!=null&&it.forWho(o.hit[0])?" · bringt am meisten für "+esc(it.forWho(o.hit[0])):""}</em></div>`;
+    h+=`<div class="abox"><h3>Talente, die passen</h3><p class="muted">Ausgewählt nach: ${esc(it.needs.map(n=>n.tag).join(", "))}</p>${it.tal.map(row).join("")||'<p class="muted">Keine passenden gefunden.</p>'}</div>`;
+    if(it.rel.length)h+=`<div class="abox"><h3>Relikte, die passen</h3>${it.rel.map(row).join("")}</div>`;
+    if(it.avoid.length)h+=`<div class="abox"><h3>Eher meiden</h3>${it.avoid.map(a=>`<div class="pair b"><i>–</i><span>${esc(a)}</span></div>`).join("")}</div>`}
+  return h;
+}
+function pickerSuggest(){
+  if(!pickSlot||pickNeed==="Goalie")return "";
+  const sq=curSq(),others=skaters(pickSlot);const s=$("pk-q").value.trim();if(s)return "";
+  const cands=P.filter(x=>x.pos!=="Goalie"&&!Object.values(team).includes(x.n)&&(!rtOnly||unl.has(x.n))&&(sq.pool==="angus"?(x.t==="Angus"||x.t==="Kapitän"):BSL.includes(pickSlot)?x.t==="Benchwarmer":true));
+  const top=cands.map(x=>evalCand(x,BSL.includes(pickSlot)?null:pickSlot,others)).sort((a,b)=>b.sc-a.sc).slice(0,5);
+  return `<div class="pk-sug"><span class="bk">Passt am besten${rtOnly?" (nur freigeschaltete)":""}</span>${top.map(r=>`<button class="prow ${TCLS[r.x.t]||""}" data-pick="${esc(r.x.n)}" style="--rc:${col(r.x.r)}"><span class="av">${avatar(r.x)}</span><span class="pinfo"><span class="pname"><span>${esc(r.x.n)}</span></span><span class="pmeta"><span>${esc(r.pro.slice(0,3).join(" · ")||r.x.r)}</span></span>${r.con.length?`<span class="pmeta"><span class="pcon">${esc(r.con.join(" · "))}</span></span>`:""}</span><span class="povr${r.x.o?"":" none"}"><b>${r.x.o??"–"}</b><small>Ø</small></span></button>`).join("")}<span class="bk">Alle Spieler</span></div>`;
+}
 
 /* ---------- Vergleich ---------- */
 function addToCmp(n){
