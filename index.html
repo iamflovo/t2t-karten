@@ -579,7 +579,7 @@ details.entry{border-left:7px solid var(--red)!important}
 .bnav .ns{display:none}@media (max-width:400px){.bnav span{font-size:9px}}@media (max-width:370px){.bnav span{font-size:8.5px}.bnav .nl{display:none}.bnav .ns{display:inline}}.slot .fit{max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .bnav .bd{font:600 9.5px var(--f-px);border:1.5px solid var(--ink);top:-4px;z-index:1}
 @media (min-width:760px){.bnav{border:3px solid var(--ink);border-radius:16px;box-shadow:0 5px 0 var(--ink);padding-bottom:0}}
-.brand{flex:1 1 auto;min-width:0}.brand h1 .ts,.brand h1 .tl{color:inherit}.brand .ts{display:none}@media (max-width:370px){.brand .tl{display:none}.brand .ts{display:inline}}.ab-top{min-width:0}.brand h1{min-width:0}.stand{flex:none}
+.brand{flex:1 1 auto;min-width:0}.brand h1 .ts,.brand h1 .tl{color:inherit}.brand .ts{display:none}.brand.short .tl{display:none}.brand.short .ts{display:inline}.stand .sd{display:none}.ab-top{min-width:0}.brand h1{min-width:0}.stand{flex:none}
 @media (max-width:420px){.stand .sd{display:none}.abtn{margin-left:0;font-size:15px;padding:4px 6px}.ab-top{gap:6px}.brand h1{font-size:18px}.stand{font-size:10px;padding:2px 5px}}
 .toast{border:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);font-family:var(--f-px);font-weight:600;background:#ffd34d}
 
@@ -673,7 +673,7 @@ details.entry{border-left:7px solid var(--red)!important}
         <div><b>Harmonie</b>Die Mitspieler-Tipps sind eine Einschätzung der App aus Werten, Fähigkeiten und Forum-Tipps. Offizielle Synergie-Daten gibt es nicht.</div>
       </div>
     </details>
-    <p class="appver">App-Version 05.11. 05:09</p>
+    <p class="appver">App-Version 05.11. 05:15</p>
     <details class="infowrap"><summary>Woher die Daten stammen</summary>
       <div class="info">
         <div><b>Werte</b>Speed, Checking, Shot Power und Accuracy stammen aus der Early-Access-Zeit, aus Community-Screenshots oder aus deinem eigenen Spiel (steht dann dabei). Gestreifte Balken liegen über 100.</div>
@@ -2087,7 +2087,7 @@ async function runShot(file){
     $("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt="">`+(r?aiResultHtml(r):`<div class="abox"><p class="rtinfo">${esc(t.slice(0,1500))}</p></div>`);
   }catch(e){$("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt=""><div class="abox"><h3>Fehler</h3><p class="rtinfo">${esc(e.code==="not_granted"?"Claude wurde nicht erlaubt.":e.code==="rate_limited"?"Gerade zu viele Anfragen, bitte später nochmal.":(e.message||String(e)))}</p><p class="rtinfo muted">Prüfe in den Einstellungen deinen Schlüssel. Kommt der Fehler wieder, ist vielleicht das Guthaben beim Anbieter leer.</p></div>`}
 }
-const APPBUILD="05.11. 05:09";
+const APPBUILD="05.11. 05:15";
 const BAKKEYS=["fav","unl","unladd","team","ss","rtsq","rtonly","seen","cmp","tut"];
 const UNLSTART=[...UNL0];
 async function saveBackup(){
@@ -2305,6 +2305,7 @@ $("sort").addEventListener("change",()=>{store.set("sort",$("sort").value);rende
 render();renderTeam();renderCmp();
 showView("spieler");
 i18nStart();
+(()=>{const br=document.querySelector(".brand"),h=br.querySelector("h1");const fit=()=>{br.classList.remove("short");if(h.scrollWidth>h.clientWidth+1)br.classList.add("short")};fit();addEventListener("resize",fit);document.fonts&&document.fonts.ready.then(fit)})();
 </script>
 <script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>{r.update();r.addEventListener("updatefound",()=>{const w=r.installing;w&&w.addEventListener("statechange",()=>{if(w.state==="activated"&&navigator.serviceWorker.controller&&typeof toast==="function")toast("Neue Version geladen")})})}).catch(()=>{}));</script>
 </body>
