@@ -669,14 +669,14 @@ details.entry{border-left:7px solid var(--red)!important}
         <div><b>Free Agents</b>Über Challenges freischalten. Zu Beginn eines Runs heißt es „Superstar auswählen“: Das Spiel bietet dir 3 zufällige freigeschaltete Free Agents mit ihren Grundwerten an, einen davon nimmst du. Unterwegs verpflichtet der General Manager weitere, deren Werte an dein Team angepasst werden. Im Spiel heißen die Werte TMP (Tempo), GNK (Genauigkeit), SKR (Schusskraft) und CHK (Checking).</div>
         <div><b>Benchwarmer</b>Starten schwach und wachsen auf der Bank. Forum-Tipp: Einen Spieler die ersten zwei Akte auf der Bank lassen, dann hast du in Akt 3 einen starken Spieler mehr.</div>
         <div><b>Grundregeln (Discord)</b>Jeder Feldspieler startet mit 2 % Crit-Chance. Pro Run werden zufällig ein „heißer“ und ein „kalter“ Spieler bestimmt (±15 OVR). Größere Spieler checken und gewinnen Zweikämpfe besser, sind aber weniger wendig; mit schwachen Werten wird ein großer Spieler zum „Pylon“. Beim Nurse-Werte-Tausch zählen die Grundwerte, nicht die aktuellen.</div>
-        <div><b>Harmonie</b>Die Mitspieler-Tipps sind meine Einschätzung aus Werten, Fähigkeiten und Forum-Tipps. Offizielle Synergie-Daten gibt es nicht.</div>
+        <div><b>Harmonie</b>Die Mitspieler-Tipps sind eine Einschätzung der App aus Werten, Fähigkeiten und Forum-Tipps. Offizielle Synergie-Daten gibt es nicht.</div>
       </div>
     </details>
-    <p class="appver">App-Version 04.11. 23:44</p>
+    <p class="appver">App-Version 05.11. 04:24</p>
     <details class="infowrap"><summary>Woher die Daten stammen</summary>
       <div class="info">
         <div><b>Werte</b>Speed, Checking, Shot Power und Accuracy stammen aus der Early-Access-Zeit, aus Community-Screenshots oder aus deinem eigenen Spiel (steht dann dabei). Gestreifte Balken liegen über 100.</div>
-        <div><b>Positionen</b>Im Spiel kann jeder Feldspieler jede Position spielen. Die Angabe ist meine Einschätzung aus Werten und Fähigkeiten; „Community“ heißt, Spieler haben ihn so eingesetzt.</div>
+        <div><b>Positionen</b>Im Spiel kann jeder Feldspieler jede Position spielen. Die Angabe ist eine Einschätzung der App aus Werten und Fähigkeiten; „Community“ heißt, Spieler haben ihn so eingesetzt.</div>
         <div><b>Beliebtheit</b>Pick-Rate im General-Manager-Angebot laut Entwickler-Statistik vom Januar 2026 (Beta, Vorgänger von 1.0).</div>
         <div><b>Quellen</b><a href="https://steamcommunity.com/app/1566200/announcements/" target="_blank" rel="noopener">Offizielle Ankündigungen</a> · <a href="https://steamdb.info/patchnotes/21497082/" target="_blank" rel="noopener">Entwickler-Statistik</a> · <a href="https://steamcommunity.com/app/1566200/discussions/" target="_blank" rel="noopener">Steam-Forum</a> · <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2975683948" target="_blank" rel="noopener">Steam-Guide</a> · <a href="https://dq7reimagined.com/tape-to-tape/achievements/" target="_blank" rel="noopener">Challenges</a> · <a href="https://tapetotapegame.com/press/" target="_blank" rel="noopener">Pressekit</a></div>
       </div>
@@ -685,7 +685,6 @@ details.entry{border-left:7px solid var(--red)!important}
 
   <section class="view" id="v-team" hidden>
     <h2 class="vh">Mein Team</h2>
-    <p class="vsub">Wähle deinen Squad: Die Grundaufstellung steht sofort, der ★-Platz ist für deinen Superstar. Danach zeigt die App, wer passt, wen du besser tauschst und welche Talente und Fähigkeiten zum Team passen. Alles bleibt auf diesem Gerät gespeichert.</p>
     <div id="rt" class="rtwrap"></div>
     <div class="rink" id="rink"></div>
     <div id="bench"></div>
@@ -696,7 +695,6 @@ details.entry{border-left:7px solid var(--red)!important}
 
   <section class="view" id="v-cmp" hidden>
     <h2 class="vh">Vergleich</h2>
-    <p class="vsub">Zwei Spieler nebeneinander. Tippe auf ein Feld, um einen Spieler zu wählen.</p>
     <div class="cpick" id="cpick"></div>
     <div class="cmp" id="cmp"></div>
   </section>
@@ -714,7 +712,7 @@ details.entry{border-left:7px solid var(--red)!important}
 
   <section class="view" id="v-gegner" hidden>
     <h2 class="vh">Gegner</h2>
-    <p class="vsub">Alle Kampagnen-Teams mit bekannten Spielern, Gimmick und Konter-Tipp. Siegquote = Anteil gewonnener Spiele aller Spieler in der Beta, je niedriger, desto schwerer. Schick Kader-Screenshots, dann trage ich die fehlenden Spieler ein.</p>
+    <p class="vsub">Alle Kampagnen-Teams mit bekannten Spielern, Gimmick und Konter-Tipp. Siegquote = Anteil gewonnener Spiele aller Spieler in der Beta, je niedriger, desto schwerer. Fehlende Spieler kommen dazu, sobald sie bekannt sind.</p>
     <div id="gegner"></div>
   </section>
 
@@ -1559,7 +1557,7 @@ function openSheet(n){
 }
 function showCard(dir){
   const x=sheetList[sheetIdx];sheetName=x.n;
-  const b=$("sh-body");b.innerHTML=card(x)+`<p class="hint">Wische nach links oder rechts für den nächsten Spieler</p>`;b.scrollTop=0;
+  const b=$("sh-body");b.innerHTML=card(x);b.scrollTop=0;
   b.classList.remove("sl","sr");if(dir){void b.offsetWidth;b.classList.add(dir>0?"sl":"sr");}
   $("sh-pos").textContent=`${sheetIdx+1} / ${sheetList.length}`;
   $("sh-prev").disabled=sheetIdx===0;$("sh-next").disabled=sheetIdx===sheetList.length-1;
@@ -1762,7 +1760,7 @@ function renderRT(){
   <p class="rtinfo"><b>Regel:</b> ${esc(sq.r)}</p>
   <p class="rtinfo"><b>Fest drin:</b> ${fx||"keiner, alle Plätze frei"}${sq.pre?` · vorbelegt: ${Object.values(sq.pre).map(esc).join(", ")}`:""}${sq.line2?` · 2. Reihe: ${sq.line2.map(esc).join(", ")}`:""}</p>
   <p class="rtinfo"><b>Feldspieler:</b> ${sq.sl.length} · <b>Benchwarmer:</b> ${sq.bw} · <b>Freischalten:</b> ${esc(sq.frei)}</p>
-  <p class="rtinfo muted">${esc(sq.tip)} Aufbau laut Community-Screenshots: Angus, ${sq.fa?"ein Superstar (aus 3 zufälligen Free Agents), ":""}${sq.pool==="angus"?"weitere Angus-Versionen":sq.pool==="fa"?"die übrigen Plätze mit Free Agents vom General Manager":"die übrigen Plätze mit Benchwarmern"}. Superstar-Auswahl bestätigt, Rest aus Screenshots abgeleitet.</p>
+  <p class="rtinfo muted">${esc(sq.r)} ${esc(sq.tip)}</p>
   </div>`;
   $("rt").innerHTML=h;h="";
   if(sq.fa){const fa=P.filter(x=>x.t==="Free Agent"&&x.pos!=="Goalie").sort((a,b)=>a.n.localeCompare(b.n,"de"));
@@ -1859,7 +1857,7 @@ function renderTeamX(){
     return `<div class="pair ${sw&&cls!=="g"?"b":cls}"><i>${cls==="g"&&!sw?"+":cls==="b"||sw?"!":"~"}</i><span><b>${esc(r.x.n)}</b> · ${s}${sq.fx[k]?" · fest drin":k===ssSlot?" · Superstar":""}</span><small>${esc([...r.pro,...r.con].join(" · ")||"neutral")}</small>${sw?`<small class="swap">Besser: <b>${esc(sw.x.n)}</b> (${esc(sw.pro.slice(0,2).join(", ")||sw.x.r)}) · ${esc(sw.src)} <button class="rtswap" data-swap="${k}|${esc(sw.x.n)}">tauschen</button></small>`:""}</div>`}).join("")}</div>`+renderUpg();
   const av=tAvg(ps);
   if(av){const str=SN.filter((n,i)=>av[i]>=55&&sq.w[i]>=.3),wk=SN.filter((n,i)=>av[i]<45&&sq.w[i]>=.3);
-    h+=`<div class="abox"><h3>Fazit</h3><p class="rtinfo"><b>Stärke:</b> ${str.join(", ")||"keine klare"} · <b>Schwäche:</b> ${wk.join(", ")||"keine große"}</p><p class="rtinfo muted">${esc(sq.r)} ${esc(sq.tip)}</p></div>`}
+    h+=`<div class="abox"><h3>Fazit</h3><p class="rtinfo"><b>Stärke:</b> ${str.join(", ")||"keine klare"} · <b>Schwäche:</b> ${wk.join(", ")||"keine große"}</p></div>`}
   const it=suggestItems(ps,sq);
   if(it){const row=o=>`<div class="sug"><button class="lexchip" data-lex="${esc(o.e[1])}">${esc(o.e[1])}</button><small>${esc(o.e[2])}</small><em>${esc(o.hit.map(n=>n.tag).join(", "))}${o.hit[0].who!=null&&it.forWho(o.hit[0])?" · bringt am meisten für "+esc(it.forWho(o.hit[0])):""}</em></div>`;
     h+=`<div class="abox"><h3>Talente, die passen</h3><p class="muted">Ausgewählt nach: ${esc(it.needs.map(n=>n.tag).join(", "))}</p>${it.tal.map(row).join("")||'<p class="muted">Keine passenden gefunden.</p>'}</div>`;
@@ -1926,8 +1924,8 @@ function upgFor(x,k){
 }
 function renderUpg(){
   const rows=SLOTS.filter(([k])=>team[k]&&k!=="g").map(([k,l,s])=>{const x=byName[team[k]],u=upgFor(x,k);
-    return `<div class="upg"><span><b>${esc(x.n)}</b> <span class="muted">· ${s}</span></span>${u.note?`<small class="muted">${esc(u.note)}</small>`:""}${u.items.map(i=>`<div class="sug"><span><em class="ukind">${i.kind}</em> <button class="lexchip" data-lex="${esc(i.n)}">${esc(i.n)}</button></span><small>${esc(i.d)}</small><em>${esc(i.why)}</em></div>`).join("")}</div>`}).join("");
-  return rows?`<div class="abox"><h3>Upgrades pro Spieler</h3><p class="muted">Welche Fähigkeit und welche Talente du jedem Spieler geben solltest, wenn du die Wahl hast, damit Spieler und Team zusammenpassen.</p>${rows}</div>`:"";
+    return `<div class="upg"><span><b>${esc(x.n)}</b> <span class="muted">· ${s}</span></span>${u.note?`<small class="muted">${esc(u.note)}</small>`:""}${u.items.map(i=>`<div class="sug"><span><em class="ukind">${i.kind}</em> <button class="lexchip" data-lex="${esc(i.n)}">${esc(i.n)}</button></span><em>${esc(i.why)}</em></div>`).join("")}</div>`}).join("");
+  return rows?`<div class="abox"><h3>Upgrades pro Spieler</h3><p class="muted">Welche Fähigkeit und welche Talente du jedem Spieler geben solltest. Tippe auf einen Namen für die Beschreibung.</p>${rows}</div>`:"";
 }
 function rebalance(){
   const sq=curSq(),ks=sq.sl.filter(k=>!sq.fx[k]&&k!==ssSlot&&team[k]);if(ks.length<2||ks.length>5)return;
@@ -2049,7 +2047,7 @@ async function runShot(file){
     $("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt="">`+(r?aiResultHtml(r):`<div class="abox"><p class="rtinfo">${esc(t.slice(0,1500))}</p></div>`);
   }catch(e){$("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt=""><div class="abox"><h3>Fehler</h3><p class="rtinfo">${esc(e.code==="not_granted"?"Claude wurde nicht erlaubt.":e.code==="rate_limited"?"Gerade zu viele Anfragen, bitte später nochmal.":(e.message||String(e)))}</p><p class="rtinfo muted">Prüfe in den Einstellungen deinen Schlüssel. Kommt der Fehler wieder, ist vielleicht das Guthaben beim Anbieter leer.</p></div>`}
 }
-const APPBUILD="04.11. 23:44";
+const APPBUILD="05.11. 04:24";
 const BAKKEYS=["fav","unl","unladd","team","ss","rtsq","rtonly","seen","cmp","tut"];
 const UNLSTART=[...UNL0];
 async function saveBackup(){
@@ -2120,7 +2118,7 @@ function renderCmp(){
       :`<button class="cslot empty" data-c="${i}"><span class="av">+</span><span class="sn">Spieler ${i+1}</span><span class="sm">antippen</span></button>`;
     return (i===1?`<span class="vs">VS</span>`:"")+slot}).join("");
   const a=byName[cmpSel[0]],b=byName[cmpSel[1]];
-  if(!a||!b){$("cmp").innerHTML=`<p class="muted" style="text-align:center">Wähle zwei Spieler. Du kannst auch auf jeder Karte auf „Vergleich“ tippen.</p>`;return}
+  if(!a||!b){$("cmp").innerHTML=`<p class="muted" style="text-align:center">Tippe oben auf ein Feld, um einen Spieler zu wählen, oder auf einer Karte auf „Vergleich“.</p>`;return}
   const line=(l,va,vb,max,txt)=>{const wa=va!=null&&vb!=null&&va>vb,wb=va!=null&&vb!=null&&vb>va;
     return `<div class="crow"><span class="v${wa?" win":""}">${va??"–"}${txt||""}</span><span class="bar a"><i style="width:${va!=null?Math.min(va/max*100,100):0}%"></i></span><span class="l">${l}</span><span class="bar b"><i style="width:${vb!=null?Math.min(vb/max*100,100):0}%"></i></span><span class="v${wb?" win":""}">${vb??"–"}${txt||""}</span></div>`};
   let h=line("OVR",a.o||null,b.o||null,100);
@@ -2197,7 +2195,7 @@ function renderNews(){
   if(nseg==="patch"){
     $("news").innerHTML=`<article class="patch plan" id="plan-1"><header><div><h3>Geplant${isNew("plan-1")?` <i class="ndot">NEU</i>`:""}</h3><span class="pb">Offiziell angekündigt · ohne Termin</span></div><span class="ptag plan">Bald</span></header>
       <ul>${PLAN.map(([k,s])=>`<li><span class="pk">${esc(k)}</span><span>${esc(s)}</span></li>`).join("")}</ul>
-      <p class="pnote">Eine richtige Roadmap gibt es noch nicht. Die Entwickler haben einen eigenen „What's Next“-Beitrag und eine FAQ angekündigt. Sobald er erscheint, trage ich ihn hier ein.</p>
+      <p class="pnote">Eine richtige Roadmap gibt es noch nicht. Die Entwickler haben einen eigenen „What's Next“-Beitrag und eine FAQ angekündigt. Sobald er erscheint, steht er hier.</p>
       <div class="meta"><a href="${ANN}" target="_blank" rel="noopener">Ankündigung zu 1.0 ↗</a></div></article>`+PATCH.map((p,i)=>`<article class="patch${i===0?" latest":""}" id="${pid(p)}"><header><div><h3>${esc(p.v)}${isNew(pid(p))?` <i class="ndot">NEU</i>`:""}</h3><span class="pb">${esc(p.b)} · ${esc(p.d)}</span></div>${i===0?`<span class="ptag">Aktuell</span>`:""}</header>
       <ul>${p.x.map(([k,t])=>`<li><span class="pk">${esc(k)}</span><span>${esc(t)}</span></li>`).join("")}</ul>
       ${p.note?`<p class="pnote">${esc(p.note)}</p>`:""}<div class="meta">${chipsOf(p.p)}<a href="${ANN}" target="_blank" rel="noopener">Offizielle Ankündigung ↗</a></div></article>`).join("");
