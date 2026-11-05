@@ -672,7 +672,7 @@ details.entry{border-left:7px solid var(--red)!important}
         <div><b>Harmonie</b>Die Mitspieler-Tipps sind eine Einschätzung der App aus Werten, Fähigkeiten und Forum-Tipps. Offizielle Synergie-Daten gibt es nicht.</div>
       </div>
     </details>
-    <p class="appver">App-Version 05.11. 04:24</p>
+    <p class="appver">App-Version 05.11. 04:27</p>
     <details class="infowrap"><summary>Woher die Daten stammen</summary>
       <div class="info">
         <div><b>Werte</b>Speed, Checking, Shot Power und Accuracy stammen aus der Early-Access-Zeit, aus Community-Screenshots oder aus deinem eigenen Spiel (steht dann dabei). Gestreifte Balken liegen über 100.</div>
@@ -718,7 +718,7 @@ details.entry{border-left:7px solid var(--red)!important}
 
   <section class="view" id="v-bilder" hidden>
     <h2 class="vh">Bilder</h2>
-    <p class="vsub">Alle Porträts aus deinem Spiel. Tippe auf ein Bild, um die Karte zu öffnen.</p>
+    <p class="vsub">Alle Porträts aus dem Spiel. Tippe auf ein Bild, um die Karte zu öffnen.</p>
     <div id="bilder"></div>
   </section>
 </main>
@@ -2047,7 +2047,7 @@ async function runShot(file){
     $("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt="">`+(r?aiResultHtml(r):`<div class="abox"><p class="rtinfo">${esc(t.slice(0,1500))}</p></div>`);
   }catch(e){$("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt=""><div class="abox"><h3>Fehler</h3><p class="rtinfo">${esc(e.code==="not_granted"?"Claude wurde nicht erlaubt.":e.code==="rate_limited"?"Gerade zu viele Anfragen, bitte später nochmal.":(e.message||String(e)))}</p><p class="rtinfo muted">Prüfe in den Einstellungen deinen Schlüssel. Kommt der Fehler wieder, ist vielleicht das Guthaben beim Anbieter leer.</p></div>`}
 }
-const APPBUILD="05.11. 04:24";
+const APPBUILD="05.11. 04:27";
 const BAKKEYS=["fav","unl","unladd","team","ss","rtsq","rtonly","seen","cmp","tut"];
 const UNLSTART=[...UNL0];
 async function saveBackup(){
