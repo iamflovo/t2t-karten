@@ -650,9 +650,9 @@ details.entry{border-left:7px solid var(--red)!important}
 .rstart>summary{cursor:pointer;font-weight:700;font-size:14px;list-style-position:inside}.rsub{display:grid;gap:7px;padding-top:9px;border-top:1px solid var(--line)}.rsub>b{font-size:13.5px}.sspick input{width:100%;box-sizing:border-box;font:600 15px var(--f-body);padding:9px 11px;border:2px solid var(--ink);border-radius:10px;background:#0f2140;color:var(--ice)}.sshits:empty{display:none}.sshits,.sschips{display:flex;flex-wrap:wrap;gap:2px}.sqmore summary{cursor:pointer;font-size:13px;color:var(--muted);font-weight:700}.sqmore[open]{display:grid;gap:6px}
 .brand h1 small.by{font:700 11px/1 var(--f-body);color:#cfe0ee;opacity:.8;letter-spacing:.03em;margin-left:3px;text-transform:none}
 .npuck{display:none}
-html.fx .npuck{display:block;position:absolute;left:0;top:-8px;width:20px;height:8px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#4a4f58 0,#16181c 55%,#050607 100%);box-shadow:0 0 0 1.5px rgba(233,242,248,.75),0 3px 0 #000;pointer-events:none;z-index:2;transition:transform .42s cubic-bezier(.25,.9,.3,1.15)}
-html.fx .npuck.go{animation:skid .42s ease}
-@keyframes skid{30%{scale:1.35 .8}70%{scale:.95 1.05}}
+html.fx .npuck{display:block;position:absolute;left:0;top:-10px;width:22px;height:11px;box-sizing:border-box;border-radius:11px/5.5px;background:#15171b;border:2px solid var(--ink);box-shadow:0 2px 0 rgba(0,0,0,.3);pointer-events:none;z-index:2;transition:transform .45s cubic-bezier(.22,.8,.25,1)}html.fx .npuck::before{content:"";position:absolute;left:-2px;right:-2px;top:-2px;height:8px;box-sizing:border-box;border-radius:50%;background:radial-gradient(ellipse at 40% 35%,#7d8590 0,#454b55 45%,#2a2e35 100%);border:2px solid var(--ink)}html.fx .npuck::after{content:"";position:absolute;top:5px;height:3px;width:26px;border-radius:2px;opacity:0;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(235,245,255,.85))}html.fx .npuck.r::after{right:100%}html.fx .npuck.l::after{left:100%;transform:scaleX(-1)}html.fx .npuck.go::after{animation:spray .45s ease-out}
+html.fx .npuck.go{animation:skid .45s ease}
+@keyframes skid{25%{rotate:-6deg}60%{rotate:3deg}}@keyframes spray{0%{opacity:0}20%{opacity:.9}100%{opacity:0}}
 html.fx .stat .track i,html.fx .toprow .tv i{transform-origin:left center;animation:grow .7s cubic-bezier(.2,.8,.2,1) both}
 html.fx .stat:nth-child(2) .track i{animation-delay:.06s}html.fx .stat:nth-child(3) .track i{animation-delay:.12s}html.fx .stat:nth-child(4) .track i{animation-delay:.18s}
 html.fx .toprow:nth-child(3) .tv i{animation-delay:.05s}html.fx .toprow:nth-child(4) .tv i{animation-delay:.1s}html.fx .toprow:nth-child(5) .tv i{animation-delay:.15s}html.fx .toprow:nth-child(6) .tv i{animation-delay:.2s}
@@ -721,7 +721,7 @@ html.fx .brand img{cursor:pointer}
         <div><b>Harmonie</b>Die Mitspieler-Tipps sind eine Einschätzung der App aus Werten, Fähigkeiten und Forum-Tipps. Offizielle Synergie-Daten gibt es nicht.</div>
       </div>
     </details>
-    <p class="appver">App-Version 16.11. 10:05</p>
+    <p class="appver">App-Version 16.11. 11:54</p>
     <details class="infowrap"><summary>Woher die Daten stammen</summary>
       <div class="info">
         <div><b>Werte</b>Speed, Checking, Shot Power und Accuracy stammen aus der Early-Access-Zeit, aus Community-Screenshots oder aus deinem eigenen Spiel (steht dann dabei). Gestreifte Balken liegen über 100.</div>
@@ -2243,7 +2243,7 @@ async function runShot(file){
     $("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt="">`+(r?aiResultHtml(r):`<div class="abox"><p class="rtinfo">${esc(t.slice(0,1500))}</p></div>`);
   }catch(e){$("ai-body").innerHTML=`<img class="aiimg" src="${img.url}" alt=""><div class="abox"><h3>Fehler</h3><p class="rtinfo">${esc(e.code==="not_granted"?"Claude wurde nicht erlaubt.":e.code==="rate_limited"?"Gerade zu viele Anfragen, bitte später nochmal.":(e.message||String(e)))}</p><p class="rtinfo muted">Prüfe in den Einstellungen deinen Schlüssel. Kommt der Fehler wieder, ist vielleicht das Guthaben beim Anbieter leer.</p></div>`}
 }
-const APPBUILD="16.11. 10:05";
+const APPBUILD="16.11. 11:54";
 const BAKKEYS=["fav","unl","unladd","team","ss","rtsq","rtonly","seen","cmp","tut"];
 const UNLSTART=[...UNL0];
 async function saveBackup(){
@@ -2461,7 +2461,7 @@ let fxOn=store.get("fx",true);
 const fxRM=matchMedia("(prefers-reduced-motion: reduce)");
 function fxApply(){document.documentElement.classList.toggle("fx",fxOn&&!fxRM.matches)}
 function movePuck(v){const p=document.querySelector(".npuck");if(!p)return;const b=document.querySelector(`.bnav [data-view="${v||document.querySelector(".bnav [aria-current]")?.dataset.view}"]`);if(!b)return;
-  const x=Math.round(b.offsetLeft+b.offsetWidth/2-10);if(p._x===x)return;const first=p._x==null;p._x=x;
+  const x=Math.round(b.offsetLeft+b.offsetWidth/2-10);p.classList.toggle("r",p._x!=null&&x>p._x);p.classList.toggle("l",p._x!=null&&x<p._x);if(p._x===x)return;const first=p._x==null;p._x=x;
   if(first){p.style.transition="none";p.style.transform=`translateX(${x}px)`;p.offsetWidth;p.style.transition=""}else{p.style.transform=`translateX(${x}px)`;p.classList.remove("go");p.offsetWidth;p.classList.add("go")}}
 function goalFx(){if(!document.documentElement.classList.contains("fx")||document.querySelector(".goalfx"))return;
   const d=document.createElement("div");d.className="goalfx";d.setAttribute("aria-hidden","true");
